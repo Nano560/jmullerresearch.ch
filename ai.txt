@@ -1,0 +1,12 @@
+# ai.txt for jmullerresearch.ch
+#
+# Generative-AI training opt-out signal per the Spawning ai.txt spec
+# (https://site.spawning.ai/spawning-ai-txt).
+#
+# This file declares that the content of this site should not be used to
+# train generative AI models. It is a polite, voluntary signal; compliance
+# depends on the crawler. See /robots.txt for per-crawler opt-outs that
+# also cover well-known training bots by name.
+
+User-Agent: *
+Disallow: /

@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Editor / OS cruft
+Thumbs.db
+*.swp
+*~
+
+# Local-only notes (not published)
+misc/
+
+# Source media masters (kept local; derived variants in images/ are published)
+src/

@@ -1,10 +1,30 @@
 # macOS
 .DS_Store
+._*
 
 # Editor / OS cruft
 Thumbs.db
 *.swp
 *~
+*.bak
+*.orig
+*.log
+
+# Editor / IDE configs
+.vscode/
+.idea/
+
+# Python (helper scripts in scripts/ can produce these)
+__pycache__/
+*.pyc
+.venv/
+
+# Env / secrets
+.env
+.env.*
+
+# Claude Code project state
+.claude/
 
 # Local-only notes (not published)
 misc/

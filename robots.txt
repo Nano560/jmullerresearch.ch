@@ -1,0 +1,79 @@
+# robots.txt for jmullerresearch.ch
+#
+# Policy: allow general-purpose search engines and on-demand /
+# user-initiated AI fetches (a real person asking ChatGPT, Claude,
+# Perplexity, etc. to look at the site). Disallow crawlers whose
+# primary purpose is harvesting content for generative-AI training.
+#
+# Compliance is voluntary -- well-behaved bots respect this file,
+# scrapers can ignore it. See also /ai.txt for the Spawning
+# AI-training opt-out signal.
+
+User-agent: *
+Allow: /
+
+# --- AI training / dataset crawlers (blocked) ---
+#
+# These are bulk training-data crawlers, distinct from on-demand
+# user agents and search indexers (which are not listed here and
+# therefore covered by the Allow above).
+
+# OpenAI -- GPTBot is the training crawler. ChatGPT-User and
+# OAI-SearchBot (user-initiated fetch + ChatGPT search index)
+# are intentionally NOT blocked.
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic -- ClaudeBot / anthropic-ai are the training crawlers.
+# Claude-Web (user-initiated fetch from Claude.ai) is NOT blocked.
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Google AI training (Gemini / Vertex). Separate from Googlebot,
+# which crawls for Google Search and is allowed.
+User-agent: Google-Extended
+Disallow: /
+
+# Apple AI training. Separate from Applebot (Spotlight/Siri search),
+# which is allowed.
+User-agent: Applebot-Extended
+Disallow: /
+
+# Meta AI training. FacebookBot (link preview generation when a user
+# shares a URL on Facebook) is intentionally NOT blocked.
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# Common Crawl -- widely used as an LLM training corpus.
+User-agent: CCBot
+Disallow: /
+
+# ByteDance / TikTok training crawler.
+User-agent: Bytespider
+Disallow: /
+
+# Amazon -- no published separation between search and AI training,
+# so blocked to be safe.
+User-agent: Amazonbot
+Disallow: /
+
+# Cohere training.
+User-agent: cohere-ai
+Disallow: /
+
+# Diffbot -- structured-data crawler frequently sold as AI training data.
+User-agent: DiffbotBot
+Disallow: /
+
+# Image-focused AI training scraper.
+User-agent: ImagesiftBot
+Disallow: /
+
+# Webz.io news/content harvester, often resold as training data.
+User-agent: Omgilibot
+Disallow: /
+
+Sitemap: https://jmullerresearch.ch/sitemap.xml

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 – Page not found – jmullerresearch.ch</title>
+    <meta name="description" content="Page not found on jmullerresearch.ch.">
+    <meta name="robots" content="noindex">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#0d0817">
+    <script src="theme.js"></script>
+    <style>
+        .error-page {
+            padding-top: 10px;
+        }
+
+        /* .container prefix: otherwise ".container p" in style.css wins and shrinks the number */
+        .container .err-code {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: clamp(4.5rem, 20vw, 8.5rem);
+            line-height: 1;
+            margin: 0 0 4px;
+            color: var(--heading);
+            letter-spacing: 0.02em;
+        }
+
+        /* Ricker wavelet — the same wavelet used in the papers */
+        .wavelet {
+            display: block;
+            width: min(440px, 82%);
+            height: auto;
+            margin: 6px auto 30px;
+            overflow: visible;
+        }
+
+        .wavelet path {
+            fill: none;
+            stroke: var(--link);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 6px var(--glow));
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            animation: wavelet-draw 2.2s ease-out forwards,
+                       wavelet-cloak 4.5s ease-in-out 2.4s infinite;
+        }
+
+        /* Signal sweeps in from silence... */
+        @keyframes wavelet-draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* ...then fades toward "cloaked" and back, like a faint echo. */
+        @keyframes wavelet-cloak {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .err-title {
+            margin-top: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .wavelet path {
+                animation: none;
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-inner">
+    <div class="scroll-container">
+        <header>
+            <h1><a href="index.html">Jonas Müller</a></h1>
+            <nav aria-label="Main">
+                <a href="acoustic-cloning.html"><span class="nav-long">Acoustic </span>Cloning</a>
+                <a href="acoustic-disguising.html"><span class="nav-long">Acoustic </span>Disguising</a>
+                <a href="about-me.html">About<span class="nav-long"> Me</span></a>
+            </nav>
+        </header>
+        <main>
+            <div class="container container--centered error-page">
+                <p class="err-code">404</p>
+
+                <svg class="wavelet" viewBox="0 0 680 240" role="img"
+                    aria-label="A Ricker wavelet fading in and out">
+                    <path pathLength="1"
+                        d="M 0 140.02 C 3.33 140.03, 13.33 140.04, 20 140.06 C 26.67 140.09, 33.33 140.12, 40 140.19 C 46.67 140.27, 53.33 140.34, 60 140.53 C 66.67 140.72, 73.33 140.92, 80 141.34 C 86.67 141.75, 93.33 142.22, 100 143.05 C 106.67 143.88, 113.33 144.86, 120 146.31 C 126.67 147.77, 133.33 149.56, 140 151.8 C 146.67 154.03, 153.33 156.83, 160 159.74 C 166.67 162.66, 173.33 166.29, 180 169.3 C 186.67 172.32, 193.33 175.89, 200 177.84 C 206.67 179.79, 213.33 181.64, 220 180.98 C 226.67 180.31, 233.33 178.41, 240 173.84 C 246.67 169.28, 253.33 162.22, 260 153.58 C 266.67 144.95, 273.33 133.18, 280 122.03 C 286.67 110.88, 293.33 97.25, 300 86.69 C 306.67 76.13, 313.33 65.13, 320 58.68 C 326.67 52.23, 333.33 48, 340 48 C 346.67 48, 353.33 52.23, 360 58.68 C 366.67 65.13, 373.33 76.13, 380 86.69 C 386.67 97.25, 393.33 110.88, 400 122.03 C 406.67 133.18, 413.33 144.95, 420 153.58 C 426.67 162.22, 433.33 169.28, 440 173.84 C 446.67 178.41, 453.33 180.31, 460 180.98 C 466.67 181.64, 473.33 179.79, 480 177.84 C 486.67 175.89, 493.33 172.32, 500 169.3 C 506.67 166.29, 513.33 162.66, 520 159.74 C 526.67 156.83, 533.33 154.03, 540 151.8 C 546.67 149.56, 553.33 147.77, 560 146.31 C 566.67 144.86, 573.33 143.88, 580 143.05 C 586.67 142.22, 593.33 141.75, 600 141.34 C 606.67 140.92, 613.33 140.72, 620 140.53 C 626.67 140.34, 633.33 140.27, 640 140.19 C 646.67 140.12, 653.33 140.09, 660 140.06 C 666.67 140.04, 676.67 140.03, 680 140.02" />
+                </svg>
+
+                <h2 class="err-title">This page has been acoustically cloaked.</h2>
+                <p>Nothing scatters back.</p>
+            </div>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/muellerjonas0/" target="_blank" aria-label="LinkedIn profile">
+                    <img src="images/icons/linkedin.svg" alt="LinkedIn"
+                        class="icon-invert">
+                </a>
+                <a href="https://orcid.org/0000-0003-4530-2486" target="_blank" aria-label="ORCID profile">
+                    <img src="images/icons/orcid.png" alt="ORCID">
+                </a>
+                <a href="mailto:jmuller.research@gmail.com" aria-label="Send email">
+                    <svg class="icon-envelope" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                        fill="currentColor">
+                        <path
+                            d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+                    </svg>
+                </a>
+            </div>
+            <small class="copyright">&copy; 2026 Jonas Müller. All rights reserved.</small>
+        </footer>
+    </div>
+
+    <script data-goatcounter="https://jmullerresearch.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

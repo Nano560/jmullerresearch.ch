@@ -7,10 +7,13 @@
     <title>Acoustic Cloning – jmullerresearch.ch</title>
     <meta name="description"
         content="Acoustic Cloning research by Jonas Müller. Publications and research on acoustic wave manipulation and cloning techniques using immersive boundary conditions.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <meta name="theme-color" content="#1e0d3e">
+    <meta name="theme-color" content="#0d0817">
+    <script src="theme.js"></script>
+    <link rel="canonical" href="https://jmullerresearch.ch/acoustic-cloning.html">
     <!-- Open Graph -->
     <meta property="og:title" content="Acoustic Cloning – Jonas Müller">
     <meta property="og:description" content="Acoustic cloning research: creating holographic scatterers using immersive boundary conditions. Published in Physical Review Applied.">
@@ -22,21 +25,46 @@
     <meta name="twitter:title" content="Acoustic Cloning – Jonas Müller">
     <meta name="twitter:description" content="Acoustic cloning research: creating holographic scatterers using immersive boundary conditions.">
     <meta name="twitter:image" content="https://live.staticflickr.com/65535/53618941315_e6840b5e3a_4k.jpg">
+    <!-- Structured data: the paper behind this page, authored by the site's #person entity -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": "Acoustic Cloning",
+        "name": "Acoustic Cloning",
+        "author": {
+            "@type": "Person",
+            "@id": "https://jmullerresearch.ch/#person",
+            "name": "Jonas Müller"
+        },
+        "datePublished": "2023",
+        "inLanguage": "en",
+        "publisher": { "@type": "Organization", "name": "American Physical Society" },
+        "isPartOf": { "@type": "Periodical", "name": "Physical Review Applied" },
+        "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.1103/PhysRevApplied.20.064014"
+        },
+        "sameAs": "https://doi.org/10.1103/PhysRevApplied.20.064014",
+        "url": "https://jmullerresearch.ch/acoustic-cloning.html"
+    }
+    </script>
 </head>
 
-<body>
-    <div class="bg"></div>
+<body class="page-inner">
     <div class="scroll-container">
         <header>
-            <h1><a href="index.html">Jonas Müller</a></h1>
-            <nav>
-                <a href="acoustic-cloning.html" class="active">Acoustic Cloning</a>
-                <a href="acoustic-disguising.html">Acoustic Disguising</a>
-                <a href="about-me.html">About Me</a>
+            <p class="site-title"><a href="index.html">Jonas Müller</a></p>
+            <nav aria-label="Main">
+                <a href="acoustic-cloning.html" class="active" aria-current="page"><span class="nav-long">Acoustic </span>Cloning</a>
+                <a href="acoustic-disguising.html"><span class="nav-long">Acoustic </span>Disguising</a>
+                <a href="about-me.html">About<span class="nav-long"> Me</span></a>
             </nav>
         </header>
         <main>
         <div class="container">
+            <h1>Acoustic Cloning</h1>
             <p>
                 This page centers on our paper published in
                 <a href="https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.20.064014" target="_blank">
@@ -64,7 +92,7 @@
 
             <figure style="margin: 60px 0;">
                 <a href="https://www.flickr.com/photos/snsf_image_competition/53618941315" target="_blank">
-                    <img src="https://live.staticflickr.com/65535/53618941315_e6840b5e3a_4k.jpg"
+                    <img src="images/acoustic-cloning.jpg" width="1400" height="1050"
                         style="width:100%; height:auto; border-radius:8px;"
                         alt="Acoustic Cloning by Jonas Müller, ETH Zurich" />
                 </a>
@@ -82,7 +110,8 @@
 
             <figure style="margin: 60px 0;">
                 <div style="position: relative; width: 100%; padding-bottom: 50%; height: 0;">
-                    <iframe src="https://www.youtube.com/embed/1Kg33ZAz0II?autoplay=1" title="YouTube video player"
+                    <iframe src="https://www.youtube.com/embed/1Kg33ZAz0II?autoplay=1" loading="lazy"
+                        title="Real scatterer vs. holographic scatterer using heterogeneous Green's functions"
                         frameborder="0"
                         allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
@@ -97,7 +126,8 @@
 
             <figure style="margin: 60px 0;">
                 <div style="position: relative; width: 100%; padding-bottom: 50%; height: 0;">
-                    <iframe src="https://www.youtube.com/embed/nkDJFB07kew?autoplay=1" title="YouTube video player"
+                    <iframe src="https://www.youtube.com/embed/nkDJFB07kew?autoplay=1" loading="lazy"
+                        title="Real scatterer vs. holographic scatterer using scattering Green's functions"
                         frameborder="0"
                         allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
@@ -112,7 +142,8 @@
 
             <figure style="margin: 60px 0;">
                 <div style="position: relative; width: 100%; padding-bottom: 50%; height: 0;">
-                    <iframe src="https://www.youtube.com/embed/1wC39kFhgbM?autoplay=1" title="YouTube video player"
+                    <iframe src="https://www.youtube.com/embed/1wC39kFhgbM?autoplay=1" loading="lazy"
+                        title="Real scatterer vs. holographic scatterer using homogeneous Green's functions"
                         frameborder="0"
                         allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
@@ -138,22 +169,20 @@
         </main>
 
         <footer>
-            <div style="display:inline-flex; align-items:center; gap:16px;">
-                <a href="https://www.linkedin.com/in/muellerjonas0/" target="_blank" aria-label="LinkedIn profile"
-                    style="display:inline-flex; align-items:center; text-decoration:none;">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
-                        alt="" style="width:20px; height:20px; filter:invert(1);">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/muellerjonas0/" target="_blank" aria-label="LinkedIn profile">
+                    <img src="images/icons/linkedin.svg" alt="LinkedIn"
+                        class="icon-invert">
                 </a>
-
-                <a href="https://orcid.org/0000-0003-4530-2486" target="_blank" aria-label="ORCID profile"
-                    style="display:inline-flex; align-items:center; text-decoration:none;">
-                    <img src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_64x64.png" alt=""
-                        style="width:20px; height:20px;">
+                <a href="https://orcid.org/0000-0003-4530-2486" target="_blank" aria-label="ORCID profile">
+                    <img src="images/icons/orcid.png" alt="ORCID">
                 </a>
-
-                <a href="mailto:jmuller.research@gmail.com" aria-label="Send email"
-                    style="display:inline-flex; align-items:center; text-decoration:none;">
-                    <i class="fa-solid fa-envelope" style="font-size:20px; color: #afafaf;" aria-hidden="true"></i>
+                <a href="mailto:jmuller.research@gmail.com" aria-label="Send email">
+                    <svg class="icon-envelope" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                        fill="currentColor">
+                        <path
+                            d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+                    </svg>
                 </a>
             </div>
             <small class="copyright">&copy; 2026 Jonas Müller. All rights reserved.</small>

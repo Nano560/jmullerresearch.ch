@@ -1,45 +1,193 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap');
+/* Fonts are self-hosted (Inter and Playfair Display, SIL Open Font License; the licence texts
+   are in fonts/). Only the Latin subsets are included: "latin" covers umlauts and punctuation,
+   "latin-ext" covers Central European names. Browsers fetch a subset only if the page needs it. */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url('fonts/inter-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url('fonts/inter-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/inter-italic-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/inter-italic-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/playfair-display-700-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/playfair-display-700-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Colour tokens. The defaults are the dark palette of the landing page.
+   Inner pages (body.page-inner) are dark too, on a flat colour, but switch to a light
+   palette when the OS prefers light or when theme.js has set data-theme="light" from the
+   visitor's toggle. data-theme="dark" forces dark over an OS preference for light. */
+:root {
+    --bg: #260b4a;
+    --text: #f5f5f5;
+    --text-muted: #ddd;
+    --heading: #f0f0f0;
+    --caption: #bbb;
+    --link: #9ec3ff;
+    --link-hover: #cfe1ff;
+    --nav-active: #9ec3ff;
+    --footer: #888;
+    --copyright: #777;
+    --copyright-opacity: 0.5;
+    --icon-filter: invert(1);
+    --icon-muted: #afafaf;
+    --glow: rgba(158, 195, 255, 0.55);
+    --portrait-ring: rgba(255, 255, 255, 0.15);
+    --portrait-shadow: rgba(0, 0, 0, 0.4);
+}
+
+body.page-inner {
+    color-scheme: dark;
+    --bg: #0d0817;
+    --footer: #9a98a8;
+    --copyright: #9a98a8;
+    --copyright-opacity: 1;
+}
+
+@media (prefers-color-scheme: light) {
+    html:not([data-theme="dark"]) body.page-inner {
+        color-scheme: light;
+        --bg: #e0dee9;
+        --text: #1c1b26;
+        --text-muted: #3a3947;
+        --heading: #1c1b26;
+        --caption: #5c5b6a;
+        --link: #3346cc;
+        --link-hover: #1f2fa8;
+        --nav-active: #3346cc;
+        --footer: #5c5b6a;
+        --copyright: #5c5b6a;
+        --icon-filter: none;
+        --icon-muted: #5c5b6a;
+        --glow: rgba(51, 70, 204, 0.25);
+        --portrait-ring: rgba(0, 0, 0, 0.08);
+        --portrait-shadow: rgba(0, 0, 0, 0.18);
+    }
+}
+
+html[data-theme="light"] body.page-inner {
+    color-scheme: light;
+    --bg: #e0dee9;
+    --text: #1c1b26;
+    --text-muted: #3a3947;
+    --heading: #1c1b26;
+    --caption: #5c5b6a;
+    --link: #3346cc;
+    --link-hover: #1f2fa8;
+    --nav-active: #3346cc;
+    --footer: #5c5b6a;
+    --copyright: #5c5b6a;
+    --icon-filter: none;
+    --icon-muted: #5c5b6a;
+    --glow: rgba(51, 70, 204, 0.25);
+    --portrait-ring: rgba(0, 0, 0, 0.08);
+    --portrait-shadow: rgba(0, 0, 0, 0.18);
+}
 
 html,
 body {
     padding: 0;
-    height: 100%;
-    overflow: hidden;
     margin: 0;
+}
+
+/* The page scrolls normally (so printing, scroll restoration and mobile toolbars behave).
+   The viewport scrollbar follows the root element's colour scheme, not the body's. */
+html:has(body.page-inner) {
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+    html:not([data-theme="dark"]):has(body.page-inner) {
+        color-scheme: light;
+    }
+}
+
+html[data-theme="light"]:has(body.page-inner) {
+    color-scheme: light;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    background-color: #260b4a;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/correlation30.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #f5f5f5;
+    background-color: var(--bg);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    min-height: -webkit-fill-available;
+    min-height: 100dvh;
+}
+
+/* The background image is only used on the landing page */
+body.page-home {
+    /* Darkness of the overlay in front of the background image */
+    --overlay: rgba(0, 0, 0, 0.28);
+    background-image: linear-gradient(var(--overlay), var(--overlay)), url('images/correlation30.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Embedded videos. Keep the iframe's own colour scheme: on a dark page the browser would
+   otherwise paint an opaque white box behind an embed that is still loading. Show
+   YouTube's black instead, so the loading state looks the same in both themes. */
+iframe {
+    color-scheme: normal;
+    background: #000;
 }
 
 figcaption {
     font-size: 0.8rem;
     line-height: 1.4;
-    color: #bbb;
+    color: var(--caption);
     margin-top: 12px;
     text-align: center;
 }
 
 .scroll-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    flex: 1 0 auto;
     display: flex;
     flex-direction: column;
 }
@@ -51,7 +199,7 @@ nav {
 }
 
 nav a {
-    color: #f5f5f5;
+    color: var(--text);
     text-decoration: none;
     margin: 0 20px;
     font-weight: 600;
@@ -77,7 +225,7 @@ nav a {
     font-size: 2.5rem;
     line-height: 1.2;
     margin-bottom: 20px;
-    color: #f0f0f0;
+    color: var(--heading);
 }
 
 .container h2 {
@@ -94,7 +242,7 @@ nav a {
 
 .container p {
     font-size: 1rem;
-    color: #ddd;
+    color: var(--text-muted);
     margin-bottom: 30px;
 }
 
@@ -132,7 +280,7 @@ footer {
     text-align: center;
     padding: 40px 0 calc(40px + env(safe-area-inset-bottom));
     font-size: 0.875rem;
-    color: #888;
+    color: var(--footer);
     margin-top: auto;
 }
 
@@ -141,15 +289,54 @@ footer {
     display: block;
     margin-top: 16px;
     font-size: 0.75rem;
-    color: #777;
+    color: var(--copyright);
     letter-spacing: 0.02em;
-    opacity: 0.5;
+    opacity: var(--copyright-opacity);
 }
 
 header {
+    position: relative;
     text-align: center;
     padding-top: calc(40px + env(safe-area-inset-top));
     margin-bottom: 0;
+}
+
+/* Light/dark toggle, added to the header of inner pages by theme.js */
+.theme-toggle {
+    position: absolute;
+    top: calc(16px + env(safe-area-inset-top));
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--link);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
+}
+
+.theme-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 /* Ensure hyperlinks do not change font on hover */
@@ -159,58 +346,52 @@ a {
     font-style: inherit;
     font-size: inherit;
     text-decoration: none;
-    color: #9ec3ff;
+    color: var(--link);
     font-weight: 600;
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #cfe1ff;
+    color: var(--link-hover);
 }
 
 a:active {
-    color: #cfe1ff;
+    color: var(--link-hover);
     opacity: 0.75;
 }
 
 a:focus-visible {
-    outline: 2px solid #9ec3ff;
+    outline: 2px solid var(--link);
     outline-offset: 3px;
     border-radius: 2px;
 }
 
+/* Site title / masthead — an <h1> on the home page, but a <p class="site-title">
+   on inner pages, where the <h1> is the page topic instead. Both look identical. */
+.site-title {
+    font-size: 2em;
+    line-height: 1.2;
+    margin: 0.67em 0;
+    font-weight: 700;
+}
+
 /* Title links behave like navigation links */
-h1>a {
+header h1>a,
+.site-title>a {
     font-family: 'Playfair Display', serif;
-    color: #f5f5f5;
+    color: var(--text);
     /* default title color */
     font-weight: 700;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-
-
-h1>a:hover,
-h1>a:focus {
-    color: #9ec3ff;
+header h1>a:hover,
+header h1>a:focus,
+.site-title>a:hover,
+.site-title>a:focus {
+    color: var(--link);
     /* hover color same as nav links */
-}
-
-.bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/correlation30.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    background-color: rgba(0, 0, 0, 0.4);
-    background-blend-mode: overlay;
 }
 
 @media (max-width: 768px) {
@@ -240,16 +421,16 @@ h1>a:focus {
 }
 
 .social-links img.icon-invert {
-    filter: invert(1);
+    filter: var(--icon-filter);
 }
 
 .social-links .icon-envelope {
-    color: #afafaf;
+    color: var(--icon-muted);
     transition: color 0.2s ease;
 }
 
 .social-links a:hover .icon-envelope {
-    color: #cfe1ff;
+    color: var(--link-hover);
 }
 
 /* Home page centered layout */
@@ -257,9 +438,26 @@ h1>a:focus {
     text-align: center;
 }
 
+/* Circular portrait photo: centred on the home page, floated beside the text on About Me */
+.portrait {
+    display: block;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 3px var(--portrait-ring), 0 8px 24px var(--portrait-shadow);
+}
+
+.portrait--aside {
+    float: right;
+    width: 140px;
+    height: 140px;
+    margin: 4px 0 16px 24px;
+}
+
 /* Active navigation link */
 nav a.active {
-    color: #9ec3ff;
+    color: var(--nav-active);
 }
 
 
@@ -267,6 +465,30 @@ nav a.active {
     .container {
         margin: 24px auto;
         padding: 24px 16px;
+    }
+
+    .portrait--aside {
+        float: none;
+        margin: 0 auto 24px;
+    }
+
+    /* Short nav labels ("Cloning", "Disguising", "About") keep the links on one row.
+       The hidden part stays in the accessibility tree, so screen readers get the full label. */
+    nav a {
+        margin: 0 6px;
+        padding: 12px 8px;
+        white-space: nowrap;
+    }
+
+    .nav-long {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
     }
 
     .container h1 {
@@ -279,5 +501,101 @@ nav a.active {
 
     .container h3 {
         font-size: 1.25rem;
+    }
+}
+
+/* Print: plain black on white, no page chrome, and the address after each outside link */
+@page {
+    margin: 18mm;
+}
+
+@media print {
+    body {
+        --bg: #fff !important;
+        --text: #000 !important;
+        --text-muted: #222 !important;
+        --heading: #000 !important;
+        --caption: #444 !important;
+        --link: #1a2a8c !important;
+        --footer: #444 !important;
+        --copyright: #444 !important;
+        --copyright-opacity: 1 !important;
+        background: #fff !important;
+        color-scheme: light;
+        min-height: 0;
+    }
+
+    .theme-toggle,
+    nav,
+    .social-links,
+    iframe {
+        display: none !important;
+    }
+
+    .container {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        animation: none;
+    }
+
+    .container p {
+        margin-bottom: 1em;
+    }
+
+    header {
+        padding-top: 0;
+    }
+
+    footer {
+        display: none;
+    }
+
+    figure {
+        margin: 24px 0 !important;
+        break-inside: avoid;
+    }
+
+    img,
+    blockquote {
+        break-inside: avoid;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Keep the big photo on the same page as the text above it */
+    main figure img {
+        max-height: 100mm;
+        width: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+
+    h1,
+    h2,
+    h3 {
+        break-after: avoid;
+    }
+
+    main a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-weight: 400;
+        font-size: 0.85em;
+        color: #444;
+        word-break: break-all;
+    }
+}
+
+/* Videos do not print: drop their empty 16:9 boxes and mark the captions that remain */
+@media print {
+    main :has(> iframe) {
+        display: none;
+    }
+
+    figure:has(iframe) figcaption::before {
+        content: "Video: ";
     }
 }

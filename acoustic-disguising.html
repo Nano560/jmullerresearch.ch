@@ -7,9 +7,13 @@
     <title>Acoustic Disguising – jmullerresearch.ch</title>
     <meta name="description"
         content="Acoustic Disguising — a unified framework for cloaking and holography. Companion code archived on Zenodo; manuscript submitted to Physical Review Research.">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <meta name="theme-color" content="#1e0d3e">
+    <meta name="theme-color" content="#0d0817">
+    <script src="theme.js"></script>
+    <link rel="canonical" href="https://jmullerresearch.ch/acoustic-disguising.html">
     <!-- Open Graph -->
     <meta property="og:title" content="Acoustic Disguising – Jonas Müller">
     <meta property="og:description"
@@ -23,21 +27,51 @@
     <meta name="twitter:description"
         content="A unified framework for acoustic cloaking and holography. Companion code archived on Zenodo.">
     <meta name="twitter:image" content="https://jmullerresearch.ch/images/correlation30.jpg">
+    <!-- Structured data: the manuscript behind this page, authored by the site's #person entity -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": "Acoustic disguising — a unified framework for cloaking and holography",
+        "name": "Acoustic disguising — a unified framework for cloaking and holography",
+        "author": [
+            {
+                "@type": "Person",
+                "@id": "https://jmullerresearch.ch/#person",
+                "name": "Jonas Müller"
+            },
+            { "@type": "Person", "name": "Dirk-Jan van Manen" }
+        ],
+        "datePublished": "2026",
+        "inLanguage": "en",
+        "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.5281/zenodo.20433700"
+        },
+        "sameAs": [
+            "https://arxiv.org/abs/2606.08524",
+            "https://doi.org/10.5281/zenodo.20433700",
+            "https://github.com/Nano560/acoustic-disguising"
+        ],
+        "url": "https://jmullerresearch.ch/acoustic-disguising.html"
+    }
+    </script>
 </head>
 
-<body>
-    <div class="bg"></div>
+<body class="page-inner">
     <div class="scroll-container">
         <header>
-            <h1><a href="index.html">Jonas Müller</a></h1>
-            <nav>
-                <a href="acoustic-cloning.html">Acoustic Cloning</a>
-                <a href="acoustic-disguising.html" class="active">Acoustic Disguising</a>
-                <a href="about-me.html">About Me</a>
+            <p class="site-title"><a href="index.html">Jonas Müller</a></p>
+            <nav aria-label="Main">
+                <a href="acoustic-cloning.html"><span class="nav-long">Acoustic </span>Cloning</a>
+                <a href="acoustic-disguising.html" class="active" aria-current="page"><span class="nav-long">Acoustic </span>Disguising</a>
+                <a href="about-me.html">About<span class="nav-long"> Me</span></a>
             </nav>
         </header>
         <main>
             <div class="container">
+                <h1>Acoustic Disguising</h1>
                 <p><em>Coming soon.</em></p>
 
                 <p>
@@ -54,7 +88,8 @@
 
                 <figure style="margin: 60px 0;">
                     <div style="position: relative; width: 100%; padding-bottom: 50%; height: 0;">
-                        <iframe src="https://www.youtube.com/embed/jqY8dO7DJ2M?autoplay=1" title="YouTube video player"
+                        <iframe src="https://www.youtube.com/embed/jqY8dO7DJ2M?autoplay=1" loading="lazy"
+                            title="Acoustic disguising — teaser"
                             frameborder="0"
                             allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
@@ -79,11 +114,11 @@
         <footer>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/muellerjonas0/" target="_blank" aria-label="LinkedIn profile">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
+                    <img src="images/icons/linkedin.svg" alt="LinkedIn"
                         class="icon-invert">
                 </a>
                 <a href="https://orcid.org/0000-0003-4530-2486" target="_blank" aria-label="ORCID profile">
-                    <img src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_64x64.png" alt="ORCID">
+                    <img src="images/icons/orcid.png" alt="ORCID">
                 </a>
                 <a href="mailto:jmuller.research@gmail.com" aria-label="Send email">
                     <svg class="icon-envelope" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"

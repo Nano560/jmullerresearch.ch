@@ -7,9 +7,13 @@
     <title>About Me – jmullerresearch.ch</title>
     <meta name="description"
         content="About Jonas Müller, a researcher in the field of physics and acoustics. Learn more about his background, education, and research interests.">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <meta name="theme-color" content="#1e0d3e">
+    <meta name="theme-color" content="#0d0817">
+    <script src="theme.js"></script>
+    <link rel="canonical" href="https://jmullerresearch.ch/about-me.html">
     <!-- Open Graph -->
     <meta property="og:title" content="About Jonas Müller">
     <meta property="og:description"
@@ -23,21 +27,57 @@
     <meta name="twitter:description"
         content="Background, education, and research interests of Jonas Müller — physicist and acoustician.">
     <meta name="twitter:image" content="https://live.staticflickr.com/65535/53618941315_e6840b5e3a_4k.jpg">
+    <!-- Structured data: identifies this site with a single, disambiguated researcher -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://jmullerresearch.ch/#person",
+        "name": "Jonas Müller",
+        "url": "https://jmullerresearch.ch/",
+        "image": "https://jmullerresearch.ch/images/jonas-mueller.jpg",
+        "jobTitle": "Researcher (Acoustics)",
+        "description": "Physicist and acoustician working on acoustic immersive wave experimentation, acoustic cloaking, and holography.",
+        "knowsAbout": [
+            "Acoustics",
+            "Immersive Wave Experimentation",
+            "Acoustic Cloaking",
+            "Acoustic Holography",
+            "Wavefield Extrapolation",
+            "Green's Functions",
+            "Computational Physics"
+        ],
+        "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "ETH Zurich" },
+            { "@type": "CollegeOrUniversity", "name": "École Polytechnique Fédérale de Lausanne (EPFL)" },
+            { "@type": "CollegeOrUniversity", "name": "Bern University of Applied Sciences (BFH)" },
+            { "@type": "ResearchOrganization", "name": "CERN" }
+        ],
+        "sameAs": [
+            "https://orcid.org/0000-0003-4530-2486",
+            "https://scholar.google.com/citations?user=Rhy1rKsAAAAJ",
+            "https://www.linkedin.com/in/muellerjonas0/",
+            "https://github.com/Nano560"
+        ]
+    }
+    </script>
 </head>
 
-<body>
-    <div class="bg"></div>
+<body class="page-inner">
     <div class="scroll-container">
         <header>
-            <h1><a href="index.html">Jonas Müller</a></h1>
-            <nav>
-                <a href="acoustic-cloning.html">Acoustic Cloning</a>
-                <a href="acoustic-disguising.html">Acoustic Disguising</a>
-                <a href="about-me.html" class="active">About Me</a>
+            <p class="site-title"><a href="index.html">Jonas Müller</a></p>
+            <nav aria-label="Main">
+                <a href="acoustic-cloning.html"><span class="nav-long">Acoustic </span>Cloning</a>
+                <a href="acoustic-disguising.html"><span class="nav-long">Acoustic </span>Disguising</a>
+                <a href="about-me.html" class="active" aria-current="page">About<span class="nav-long"> Me</span></a>
             </nav>
         </header>
         <main>
             <div class="container">
+                <h1>About Me</h1>
+                <img class="portrait portrait--aside" src="images/jonas-mueller.jpg" width="140" height="140"
+                    alt="Portrait of Jonas Müller">
                 <h2>Education</h2>
                 <p>Electrical engineer by formation, physicist at heart, and philosopher by night.</p>
                 <p>
@@ -49,6 +89,10 @@
                     You can find my thesis <a
                         href="https://www.research-collection.ethz.ch/entities/publication/2ec53a10-cf0d-4cfa-80e9-8823486e0047">Advancing
                         3D Acoustic Immersive Wave Experimentation</a> in the ETH Research Collection.
+                </p>
+                <p>
+                    My publications are listed on
+                    <a href="https://scholar.google.com/citations?user=Rhy1rKsAAAAJ" target="_blank">Google Scholar</a>.
                 </p>
 
 
@@ -65,7 +109,8 @@
                 <h2>Misc</h2>
                 <p>The beauty of correlating circles.</p>
                 <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
-                    <iframe src="https://www.youtube.com/embed/9_eo_slPIKk" title="YouTube video player" frameborder="0"
+                    <iframe src="https://www.youtube.com/embed/9_eo_slPIKk" loading="lazy"
+                        title="The beauty of correlating circles" frameborder="0"
                         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
                     </iframe>
@@ -77,11 +122,11 @@
         <footer>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/muellerjonas0/" target="_blank" aria-label="LinkedIn profile">
-                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
+                    <img src="images/icons/linkedin.svg" alt="LinkedIn"
                         class="icon-invert">
                 </a>
                 <a href="https://orcid.org/0000-0003-4530-2486" target="_blank" aria-label="ORCID profile">
-                    <img src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_64x64.png" alt="ORCID">
+                    <img src="images/icons/orcid.png" alt="ORCID">
                 </a>
                 <a href="mailto:jmuller.research@gmail.com" aria-label="Send email">
                     <svg class="icon-envelope" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"

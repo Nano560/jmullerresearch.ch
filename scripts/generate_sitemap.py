@@ -3,7 +3,8 @@
 Regenerate sitemap.xml from the .html files on disk.
 
 Walks the website root for *.html (skipping a small set of asset/build
-directories) and writes a fresh sitemap.xml at the repo root. Each entry
+directories and individual non-indexable pages) and writes a fresh
+sitemap.xml at the repo root. Each entry
 uses the file's mtime as <lastmod>, so the timestamp in the sitemap is
 "the last time the source file changed" -- which is what search engines
 treat as a freshness signal.
@@ -30,6 +31,10 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 # this list if you ever introduce something like drafts/ or private/.
 EXCLUDE_DIRS = {".git", "scripts", "src", "misc", "images"}
 
+# Individual pages that should NOT be in the sitemap: 404.html is noindex, and
+# listen.html is an unfinished prototype. Remove it from here once it is ready.
+EXCLUDE_FILES = {"404.html", "listen.html"}
+
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 
@@ -52,6 +57,8 @@ def collect_html_files() -> list[pathlib.Path]:
         rel_parts = p.relative_to(ROOT).parts
         # Skip anything inside an excluded directory at any depth.
         if any(part in EXCLUDE_DIRS for part in rel_parts[:-1]):
+            continue
+        if p.relative_to(ROOT).as_posix() in EXCLUDE_FILES:
             continue
         out.append(p)
     return out

@@ -11,6 +11,7 @@
     <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
     <script src="nav.js" defer></script>
+    <script src="videos.js" defer></script>
     <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
     <meta name="theme-color" content="#0d0817">
     <script src="theme.js"></script>
@@ -113,51 +114,44 @@
                 In each video, different Green's functions are used to extrapolate the wave field.
             </p>
 
-            <figure style="margin: 60px 0;">
-                <div style="position: relative; width: 100%; padding-bottom: 50%; height: 0;">
-                    <iframe src="https://www.youtube.com/embed/1Kg33ZAz0II?autoplay=1" loading="lazy"
-                        title="Real scatterer vs. holographic scatterer using heterogeneous Green's functions"
-                        frameborder="0"
-                        allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                    </iframe>
-                </div>
-                <figcaption>
-                    Real scatterer vs. Holographic scatterer using heterogeneous Green's functions
-                </figcaption>
-            </figure>
-
-            <div style="margin: 40px 0;"></div>
-
-            <figure style="margin: 60px 0;">
-                <div style="position: relative; width: 100%; padding-bottom: 50%; height: 0;">
-                    <iframe src="https://www.youtube.com/embed/nkDJFB07kew?autoplay=1" loading="lazy"
-                        title="Real scatterer vs. holographic scatterer using scattering Green's functions"
-                        frameborder="0"
-                        allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                    </iframe>
-                </div>
-                <figcaption>
-                    Real scatterer vs. Holographic scatterer using scattering Green's functions
-                </figcaption>
-            </figure>
-
-            <div style="margin: 40px 0;"></div>
-
-            <figure style="margin: 60px 0;">
-                <div style="position: relative; width: 100%; padding-bottom: 50%; height: 0;">
-                    <iframe src="https://www.youtube.com/embed/1wC39kFhgbM?autoplay=1" loading="lazy"
-                        title="Real scatterer vs. holographic scatterer using homogeneous Green's functions"
-                        frameborder="0"
-                        allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                    </iframe>
-                </div>
-                <figcaption>
-                    Real scatterer vs. Holographic scatterer using homogeneous Green's functions
-                </figcaption>
-            </figure>
+            <div class="video-switcher" data-video-switcher>
+                <figure class="video-item" data-video="1Kg33ZAz0II" data-slug="heterogeneous" data-label="Heterogeneous"
+                    data-poster="images/video-heterogeneous.jpg">
+                    <noscript>
+                        <div class="video-frame">
+                            <iframe src="https://www.youtube-nocookie.com/embed/1Kg33ZAz0II" loading="lazy"
+                                title="Real scatterer vs. Holographic scatterer using heterogeneous Green's functions"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </noscript>
+                    <figcaption>Real scatterer vs. Holographic scatterer using heterogeneous Green's functions</figcaption>
+                </figure>
+                <figure class="video-item" data-video="nkDJFB07kew" data-slug="scattering" data-label="Scattering"
+                    data-poster="images/video-scattering.jpg">
+                    <noscript>
+                        <div class="video-frame">
+                            <iframe src="https://www.youtube-nocookie.com/embed/nkDJFB07kew" loading="lazy"
+                                title="Real scatterer vs. Holographic scatterer using scattering Green's functions"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </noscript>
+                    <figcaption>Real scatterer vs. Holographic scatterer using scattering Green's functions</figcaption>
+                </figure>
+                <figure class="video-item" data-video="1wC39kFhgbM" data-slug="homogeneous" data-label="Homogeneous"
+                    data-poster="images/video-homogeneous.jpg">
+                    <noscript>
+                        <div class="video-frame">
+                            <iframe src="https://www.youtube-nocookie.com/embed/1wC39kFhgbM" loading="lazy"
+                                title="Real scatterer vs. Holographic scatterer using homogeneous Green's functions"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </noscript>
+                    <figcaption>Real scatterer vs. Holographic scatterer using homogeneous Green's functions</figcaption>
+                </figure>
+            </div>
 
             <p>
                 The data and code supporting this work are available in the

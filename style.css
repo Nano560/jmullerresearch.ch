@@ -164,7 +164,7 @@ body {
 body.page-home {
     /* Darkness of the overlay in front of the background image */
     --overlay: rgba(0, 0, 0, 0.28);
-    background-image: linear-gradient(var(--overlay), var(--overlay)), url('images/correlation30.jpg');
+    background-image: linear-gradient(var(--overlay), var(--overlay)), url('images/correlation30.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -244,6 +244,28 @@ nav a {
     font-size: 1rem;
     color: var(--text-muted);
     margin-bottom: 30px;
+}
+
+/* BibTeX blocks: a translucent grey tile that suits both themes; one click selects the whole entry */
+pre.bibtex {
+    margin: 0 0 24px;
+    padding: 16px 18px;
+    background: rgba(128, 128, 128, 0.14);
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    white-space: pre;
+    overflow-x: auto;
+    -webkit-user-select: all;
+    user-select: all;
+}
+
+/* Content pages: tighter paragraph spacing for running text (the landing page keeps its airy lines) */
+body.page-inner .container p {
+    margin-bottom: 1.25em;
 }
 
 /* .container a img {
@@ -330,6 +352,44 @@ header {
 }
 
 .theme-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Menu button for phones, added to the header by nav.js (hidden on wider screens) */
+.nav-toggle {
+    position: absolute;
+    top: calc(16px + env(safe-area-inset-top));
+    left: 16px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.nav-toggle:hover {
+    color: var(--link);
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
+}
+
+.nav-toggle svg {
     width: 22px;
     height: 22px;
     fill: none;
@@ -472,23 +532,30 @@ nav a.active {
         margin: 0 auto 24px;
     }
 
-    /* Short nav labels ("Cloning", "Disguising", "About") keep the links on one row.
-       The hidden part stays in the accessibility tree, so screen readers get the full label. */
+    /* Phones: the nav collapses behind a menu button (added by nav.js) and opens as a list with
+       the full labels. Without JavaScript the links just stay visible and wrap onto a second row. */
     nav a {
-        margin: 0 6px;
-        padding: 12px 8px;
-        white-space: nowrap;
+        margin: 0 12px;
     }
 
-    .nav-long {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        clip-path: inset(50%);
-        white-space: nowrap;
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+    nav.menu-ready {
+        display: none;
+    }
+
+    nav.menu-ready.is-open {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4px 0 20px;
+    }
+
+    nav.menu-ready.is-open a {
+        margin: 0;
+        padding: 12px 32px;
     }
 
     .container h1 {
@@ -526,6 +593,7 @@ nav a.active {
     }
 
     .theme-toggle,
+    .nav-toggle,
     nav,
     .social-links,
     iframe {
@@ -578,6 +646,13 @@ nav a.active {
     h2,
     h3 {
         break-after: avoid;
+    }
+
+    /* Long BibTeX lines wrap on paper instead of running off the page */
+    pre.bibtex {
+        white-space: pre-wrap;
+        overflow: visible;
+        break-inside: avoid;
     }
 
     main a[href^="http"]::after {

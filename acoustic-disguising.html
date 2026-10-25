@@ -11,6 +11,7 @@
     <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
     <script src="nav.js" defer></script>
+    <script src="videos.js" defer></script>
     <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
     <meta name="theme-color" content="#0d0817">
     <script src="theme.js"></script>
@@ -77,30 +78,48 @@
         <main>
             <div class="container">
                 <h1>Acoustic Disguising</h1>
-                <p><em>Coming soon.</em></p>
-
                 <p>
-                    Companion code for the manuscript
-                    <em>Acoustic disguising — a unified framework for cloaking and holography</em>,
-                    submitted to <em>Physical Review Research</em> in 2026.
+                    Manuscript <em>Acoustic disguising — a unified framework for cloaking and holography</em>
+                    by Jonas Müller and Dirk-Jan van Manen, submitted to <em>Physical Review Research</em> in 2026.
                     Preprint on
                     <a href="https://arxiv.org/abs/2606.08524" target="_blank">arXiv</a>;
-                    source on
-                    <a href="https://github.com/Nano560/acoustic-disguising" target="_blank">GitHub</a>;
+                    source code on
+                    <a href="https://github.com/Nano560/acoustic-disguising" target="_blank">GitHub</a>,
                     archived on Zenodo at
                     <a href="https://doi.org/10.5281/zenodo.20433700" target="_blank">doi:10.5281/zenodo.20433700</a>.
                 </p>
 
-                <figure style="margin: 60px 0;">
-                    <div style="position: relative; width: 100%; padding-bottom: 50%; height: 0;">
-                        <iframe src="https://www.youtube.com/embed/jqY8dO7DJ2M?autoplay=1" loading="lazy"
-                            title="Acoustic disguising — teaser"
-                            frameborder="0"
-                            allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                        </iframe>
-                    </div>
-                </figure>
+                <h2>In short</h2>
+                <p>
+                    Surround an object with a closed surface that records the incoming sound and emits a prepared
+                    response, and you can control how the object appears acoustically. The paper shows that cloaking,
+                    holography and disguising are one and the same operation. What changes is the response that drives
+                    the surface: the response of empty surroundings suppresses the sound field inside, so whatever sits
+                    there is cloaked; the scattering response of a target object creates a hologram that scatters sound
+                    like the target; and combining the two makes one object take on the acoustic signature of another,
+                    for example a sphere that scatters like a cube. This is demonstrated in three-dimensional
+                    simulations, and the required responses can also be retrieved from reverberant data.
+                </p>
+
+                <div class="video-switcher" data-video-switcher>
+                    <figure class="video-item" data-video="jqY8dO7DJ2M" data-slug="teaser" data-label="Teaser"
+                        data-poster="images/video-teaser.jpg">
+                        <noscript>
+                            <div class="video-frame">
+                                <iframe src="https://www.youtube-nocookie.com/embed/jqY8dO7DJ2M" loading="lazy"
+                                    title="3D Acoustic Cloning — True vs. Reconstructed Wavefield (Cross Scatterer)"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </noscript>
+                        <figcaption>3D Acoustic Cloning — True vs. Reconstructed Wavefield (Cross Scatterer)</figcaption>
+                    </figure>
+                </div>
+                <p>More supplementary animations will be posted here when the article is published.</p>
+
+                <h2>Abstract</h2>
+                <p>Cloaking and holography—usually treated as distinct problems—are two limits of a single operation that we call acoustic disguising, realized here using immersive boundary conditions on a closed surface. Driving the boundary with homogeneous Green's functions suppresses any incident field inside the enclosed volume and cloaks unknown objects broadband; driving it with scattering Green's functions synthesizes a holographic scatterer indistinguishable from a target for arbitrary illuminations. Combining the two, using heterogeneous Green's functions, replaces the scattering signature of one object with that of another, transforming its acoustic identity. We demonstrate the framework in three-dimensional FDTD simulations driven by impulsive Green's functions, complemented by data-driven Green's-function retrieval, establishing a direct route to real-time 3D acoustic cloaking, holography, cloning, and disguising.</p>
+                <p class="source-note">From the arXiv preprint, version 1.</p>
 
                 <h2>How to cite</h2>
                 <p>BibTeX for the preprint and for the archived code. Clicking a block selects it, ready to copy.</p>
@@ -119,11 +138,10 @@
   title     = {Acoustic Disguising: Green's function extraction and
                hologram synthesis},
   year      = {2026},
-  version   = {1.0.1},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.20433782},
-  url       = {https://doi.org/10.5281/zenodo.20433782},
-  note      = {Software}
+  doi       = {10.5281/zenodo.20433700},
+  url       = {https://doi.org/10.5281/zenodo.20433700},
+  note      = {Software, all versions}
 }</pre>
             </div>
         </main>

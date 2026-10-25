@@ -409,6 +409,13 @@ body.page-inner .container p {
     margin-bottom: 1.25em;
 }
 
+/* A small attribution line under a quoted passage */
+body.page-inner .container p.source-note {
+    margin-top: -0.6em;
+    font-size: 0.85rem;
+    color: var(--caption);
+}
+
 /* .container a img {
     margin: 0 12px;
     vertical-align: middle;

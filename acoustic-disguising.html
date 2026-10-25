@@ -10,6 +10,7 @@
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
+    <script src="nav.js" defer></script>
     <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
     <meta name="theme-color" content="#0d0817">
     <script src="theme.js"></script>
@@ -20,13 +21,17 @@
         content="A unified framework for acoustic cloaking and holography. Companion code (Julia + Python) archived on Zenodo; manuscript submitted to Physical Review Research.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://jmullerresearch.ch/acoustic-disguising.html">
-    <meta property="og:image" content="https://jmullerresearch.ch/images/correlation30.jpg">
+    <meta property="og:image" content="https://jmullerresearch.ch/images/og-artwork.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Abstract artwork: overlapping translucent circles in purple and blue around one bright green ring">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Acoustic Disguising – Jonas Müller">
     <meta name="twitter:description"
         content="A unified framework for acoustic cloaking and holography. Companion code archived on Zenodo.">
-    <meta name="twitter:image" content="https://jmullerresearch.ch/images/correlation30.jpg">
+    <meta name="twitter:image" content="https://jmullerresearch.ch/images/og-artwork.jpg">
+    <meta name="twitter:image:alt" content="Abstract artwork: overlapping translucent circles in purple and blue around one bright green ring">
     <!-- Structured data: the manuscript behind this page, authored by the site's #person entity -->
     <script type="application/ld+json">
     {
@@ -64,9 +69,9 @@
         <header>
             <p class="site-title"><a href="index.html">Jonas Müller</a></p>
             <nav aria-label="Main">
-                <a href="acoustic-cloning.html"><span class="nav-long">Acoustic </span>Cloning</a>
-                <a href="acoustic-disguising.html" class="active" aria-current="page"><span class="nav-long">Acoustic </span>Disguising</a>
-                <a href="about-me.html">About<span class="nav-long"> Me</span></a>
+                <a href="acoustic-cloning.html">Acoustic Cloning</a>
+                <a href="acoustic-disguising.html" class="active" aria-current="page">Acoustic Disguising</a>
+                <a href="about-me.html">About Me</a>
             </nav>
         </header>
         <main>
@@ -97,17 +102,29 @@
                     </div>
                 </figure>
 
-                <!--
-                <p>How to cite the software:</p>
-                <pre style="background: rgba(0, 0, 0, 0.35); color: #e6e6e6; padding: 16px 18px; border-radius: 8px; font-size: 0.85rem; line-height: 1.45; overflow-x: auto; white-space: pre; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;">@software{Muller2026_code,
-  author    = {Müller, Jonas and van Manen, Dirk-Jan},
-  title     = {Acoustic Disguising: Green's function retrieval and hologram synthesis},
-  version   = {1.0.0},
-  year      = {2026},
-  doi       = {10.5281/zenodo.20433700},
-  publisher = {Zenodo}
+                <h2>How to cite</h2>
+                <p>BibTeX for the preprint and for the archived code. Clicking a block selects it, ready to copy.</p>
+                <pre class="bibtex">@misc{Muller2026_acoustic_disguising,
+  author        = {M{\"u}ller, Jonas and van Manen, Dirk-Jan},
+  title         = {Acoustic disguising: a unified framework for
+                   cloaking and holography},
+  year          = {2026},
+  eprint        = {2606.08524},
+  archivePrefix = {arXiv},
+  primaryClass  = {physics.app-ph},
+  url           = {https://arxiv.org/abs/2606.08524}
 }</pre>
-                -->
+                <pre class="bibtex">@misc{Muller2026_acoustic_disguising_code,
+  author    = {M{\"u}ller, Jonas and van Manen, Dirk-Jan},
+  title     = {Acoustic Disguising: Green's function extraction and
+               hologram synthesis},
+  year      = {2026},
+  version   = {1.0.1},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20433782},
+  url       = {https://doi.org/10.5281/zenodo.20433782},
+  note      = {Software}
+}</pre>
             </div>
         </main>
 

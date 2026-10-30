@@ -29,7 +29,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 # Directories whose .html files should NOT be in the sitemap. Add to
 # this list if you ever introduce something like drafts/ or private/.
-EXCLUDE_DIRS = {".git", "scripts", "src", "misc", "images"}
+# .claude holds local tool state, which can include whole worktrees of this repo.
+EXCLUDE_DIRS = {".git", ".claude", "scripts", "src", "misc", "images"}
 
 # Individual pages that should NOT be in the sitemap: 404.html is noindex, and
 # listen.html is an unfinished prototype. Remove it from here once it is ready.

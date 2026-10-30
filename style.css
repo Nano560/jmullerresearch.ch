@@ -509,6 +509,46 @@ a.cv-org:focus-visible {
     font-size: 0.88em;
 }
 
+/* Research page: one entry per topic, its title linking to the topic's page */
+.research-item {
+    margin-bottom: 2.5em;
+}
+
+.container .research-item h2 {
+    margin-bottom: 0.25em;
+}
+
+.research-item h2 a {
+    color: var(--text);
+}
+
+.research-item h2 a:hover,
+.research-item h2 a:focus-visible {
+    color: var(--link);
+}
+
+body.page-inner .container p.research-meta {
+    margin-bottom: 0.6em;
+    font-size: 0.9rem;
+    color: var(--caption);
+}
+
+/* "← Research" above the title of a project page */
+body.page-inner .container p.back-link {
+    margin-bottom: 0.5em;
+    font-size: 0.9rem;
+}
+
+.back-link a {
+    color: var(--caption);
+    font-weight: 400;
+}
+
+.back-link a:hover,
+.back-link a:focus-visible {
+    color: var(--link);
+}
+
 /* .container a img {
     margin: 0 12px;
     vertical-align: middle;
@@ -853,6 +893,7 @@ nav a.active {
     .theme-toggle,
     .nav-toggle,
     nav,
+    .back-link,
     .social-links,
     iframe {
         display: none !important;

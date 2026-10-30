@@ -416,6 +416,96 @@ body.page-inner .container p.source-note {
     color: var(--caption);
 }
 
+/* CV page: a date column beside each entry, stacked on phones */
+body.page-inner .container p.cv-links {
+    font-size: 0.95rem;
+}
+
+.cv-list {
+    list-style: none;
+    margin: 0 0 2em;
+    padding: 0;
+}
+
+.cv-list > li {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    column-gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.cv-when {
+    padding-top: 0.15em;
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--caption);
+}
+
+body.page-inner .container .cv-what p {
+    margin: 0 0 0.5em;
+    font-size: 0.95rem;
+}
+
+body.page-inner .container .cv-what p.cv-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.cv-where {
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.cv-where::before {
+    content: "· ";
+}
+
+/* Links on organisation names: quiet, in the colour of the surrounding text, coloured only on hover */
+a.cv-org {
+    color: inherit;
+    font-weight: inherit;
+}
+
+a.cv-org:hover,
+a.cv-org:focus-visible {
+    color: var(--link);
+}
+
+.cv-what ul {
+    margin: 0 0 0.5em;
+    padding-left: 1.1em;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.cv-what ul li {
+    margin-bottom: 0.3em;
+}
+
+.cv-skills {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 0.75rem 1.25rem;
+    margin: 0 0 2em;
+    font-size: 0.95rem;
+}
+
+.cv-skills dt {
+    font-size: 0.9rem;
+    color: var(--caption);
+}
+
+.cv-skills dd {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.cv-what code,
+.cv-skills code {
+    font-size: 0.88em;
+}
+
 /* .container a img {
     margin: 0 12px;
     vertical-align: middle;
@@ -710,6 +800,19 @@ nav a.active {
         flex: 1 1 100%;
     }
 
+    .cv-list > li,
+    .cv-skills {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-list > li {
+        row-gap: 0.15rem;
+    }
+
+    .cv-skills dd {
+        margin-bottom: 0.5rem;
+    }
+
     .container h1 {
         font-size: 2.25rem;
     }
@@ -776,6 +879,10 @@ nav a.active {
         break-inside: avoid;
     }
 
+    .cv-list > li {
+        break-inside: avoid;
+    }
+
     img,
     blockquote {
         break-inside: avoid;
@@ -830,6 +937,11 @@ nav a.active {
         font-size: 0.85em;
         color: #444;
         word-break: break-all;
+    }
+
+    /* Organisation names stay plain on paper */
+    main a.cv-org::after {
+        content: none;
     }
 }
 

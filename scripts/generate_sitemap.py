@@ -32,9 +32,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 # .claude holds local tool state, which can include whole worktrees of this repo.
 EXCLUDE_DIRS = {".git", ".claude", "scripts", "src", "misc", "images"}
 
-# Individual pages that should NOT be in the sitemap: 404.html is noindex, and
-# listen.html is an unfinished prototype. Remove it from here once it is ready.
-EXCLUDE_FILES = {"404.html", "listen.html"}
+# Individual pages that should NOT be in the sitemap: 404.html is noindex.
+EXCLUDE_FILES = {"404.html"}
 
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 

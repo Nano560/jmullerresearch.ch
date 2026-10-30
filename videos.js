@@ -1,6 +1,7 @@
 /* Video switcher: shows one video at a time and lets the visitor choose which one.
    The page lists every video as <figure class="video-item"> inside [data-video-switcher], with
    data-video (YouTube id), data-slug, data-label, data-poster and an optional data-group.
+   data-aspect ("16/9", "1/1", "9/16") gives the shape of the film and of its poster; without it the stage is 2:1.
    Without JavaScript the page keeps listing them all (each embedded inside <noscript>); with it,
    they are replaced by one player with a poster, a caption and one button per video.
    YouTube is only contacted when someone presses play. #video=<slug> in the address opens that
@@ -16,6 +17,11 @@
         return el;
     };
 
+    const aspect = (text) => {
+        const match = /^(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)$/.exec(text || '');
+        return match && Number(match[1]) > 0 && Number(match[2]) > 0 ? [Number(match[1]), Number(match[2])] : [2, 1];
+    };
+
     document.querySelectorAll('[data-video-switcher]').forEach((root) => {
         const items = [...root.querySelectorAll('.video-item')].map((el) => {
             const caption = el.querySelector('figcaption');
@@ -25,6 +31,7 @@
                 label: el.dataset.label || el.dataset.slug || el.dataset.video,
                 poster: el.dataset.poster || '',
                 group: el.dataset.group || '',
+                ratio: aspect(el.dataset.aspect),
                 title: (caption ? caption.textContent : '').replace(/\s+/g, ' ').trim()
             };
         }).filter((item) => item.id);
@@ -40,7 +47,7 @@
         const poster = (item) => {
             const button = make('button', 'video-poster', { type: 'button', 'aria-label': 'Play video: ' + item.title });
             if (item.poster) {
-                const img = make('img', '', { src: item.poster, alt: '', width: '1280', height: '640' });
+                const img = make('img', '', { src: item.poster, alt: '', width: '1280', height: String(Math.round(1280 * item.ratio[1] / item.ratio[0])) });
                 button.append(img);
             }
             const play = make('span', 'video-play');
@@ -68,6 +75,8 @@
             playing = play;
             buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
             caption.textContent = items[index].title;
+            stage.style.setProperty('--video-w', items[index].ratio[0]);
+            stage.style.setProperty('--video-h', items[index].ratio[1]);
             stage.replaceChildren(play ? player(items[index]) : poster(items[index]));
             if (hash) {
                 try {

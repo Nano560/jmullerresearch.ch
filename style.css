@@ -260,12 +260,15 @@ nav a {
     display: none;
 }
 
+/* Each film keeps its own shape: --video-w and --video-h come from data-aspect (set by videos.js, or inline on the
+   <noscript> frame) and default to 2:1. A tall film is held to what fits on screen instead of filling it. */
 .video-frame,
 .video-stage {
     position: relative;
     width: 100%;
-    height: 0;
-    padding-bottom: 50%;
+    max-width: calc(min(85vh, 760px) * var(--video-w, 2) / var(--video-h, 1));
+    margin-inline: auto;
+    aspect-ratio: var(--video-w, 2) / var(--video-h, 1);
     overflow: hidden;
     border-radius: 8px;
     background: #000;

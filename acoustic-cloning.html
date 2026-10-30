@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acoustic Cloning – Jonas Müller</title>
     <meta name="description"
-        content="Acoustic cloning (Müller et al., Physical Review Applied 2023): reproducing a physical scatterer holographically in real time with immersive boundary conditions. Paper, data and simulations.">
+        content="Acoustic cloning (Müller et al., Physical Review Applied 2023): reproducing a physical scatterer holographically in real time with immersive boundary conditions. Experimental paper and data, with numerical simulations as additional material.">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
@@ -18,7 +18,7 @@
     <link rel="canonical" href="https://jmullerresearch.ch/acoustic-cloning.html">
     <!-- Open Graph -->
     <meta property="og:title" content="Acoustic Cloning – Jonas Müller">
-    <meta property="og:description" content="Acoustic cloning research: creating holographic scatterers using immersive boundary conditions. Published in Physical Review Applied.">
+    <meta property="og:description" content="Acoustic cloning: an experimental paper on holographic scatterers using immersive boundary conditions (Physical Review Applied), with numerical simulations as separate additional material.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://jmullerresearch.ch/acoustic-cloning.html">
     <meta property="og:image" content="https://jmullerresearch.ch/images/og-artwork.jpg">
@@ -28,7 +28,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Acoustic Cloning – Jonas Müller">
-    <meta name="twitter:description" content="Acoustic cloning research: creating holographic scatterers using immersive boundary conditions.">
+    <meta name="twitter:description" content="Acoustic cloning: an experimental paper (Physical Review Applied), with numerical simulations as additional material.">
     <meta name="twitter:image" content="https://jmullerresearch.ch/images/og-artwork.jpg">
     <meta name="twitter:image:alt" content="Abstract artwork: overlapping translucent circles in purple and blue around one bright green ring">
     <!-- Structured data: the paper behind this page, authored by the site's #person entity -->
@@ -77,28 +77,27 @@
         <div class="container">
             <h1>Acoustic Cloning</h1>
             <p>
-                This page centers on our paper published in
+                This page centers on our experimental paper, published in
                 <a href="https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.20.064014" target="_blank">
-                    Physical Review Applied 20, 064014 (2023)
-                </a>.
-            </p>
-
-            <p>
-                The paper is freely available from the
+                    Physical Review Applied 20, 064014 (2023)</a>.
+                It is freely available from the
                 <a href="https://www.research-collection.ethz.ch/server/api/core/bitstreams/9a9cad64-f498-4d18-b872-8077246de71c/content"
                     target="_blank">
-                    ETH Research Collection.
-                </a>
-            </p>
-
-            <p>
-                An easy-to-read article can be found in the
+                    ETH Research Collection</a>
+                and as a preprint on
+                <a href="https://arxiv.org/abs/2606.08614" target="_blank">arXiv</a>.
+                An easy-to-read article is the
                 <a href="https://physics.aps.org/articles/v16/206" target="_blank">APS Physics "Focus" article</a>.
             </p>
 
+            <h2>In short</h2>
             <p>
-                A preprint is also available on
-                <a href="https://arxiv.org/abs/2606.08614" target="_blank">arXiv</a>.
+                A scatterer changes a sound field in a way that is entirely described by its scattering response.
+                Measure that response and the scattering can be recreated without the object: a ring of loudspeakers
+                in empty space, driven from what a ring of microphones hears, radiates what the object would have
+                radiated. The paper demonstrates this in an experiment in a waveguide. There, every recording is
+                dominated by the walls, and multidimensional deconvolution removes them using nothing but the
+                recordings themselves.
             </p>
 
             <figure style="margin: 60px 0;">
@@ -114,9 +113,12 @@
                 </figcaption>
             </figure>
 
+            <h2>Numerical companion</h2>
             <p>
-                The following videos show the simulated acoustic wave fields for the same 2D waveguide as in the paper.
-                In each video, different Green's functions are used to extrapolate the wave field.
+                The paper reports an experiment only. The films below are separate, purely numerical material, shown
+                as an additional resource: simulated acoustic wave fields for the same 2D waveguide as in the paper,
+                where in each film different Green's functions are used to extrapolate the wave field. Nothing shown
+                in them is a measurement.
             </p>
 
             <div class="video-switcher" data-video-switcher>
@@ -125,53 +127,53 @@
                     <noscript>
                         <div class="video-frame">
                             <iframe src="https://www.youtube-nocookie.com/embed/1Kg33ZAz0II" loading="lazy"
-                                title="Real scatterer vs. Holographic scatterer using heterogeneous Green's functions"
+                                title="Numerical simulation: real scatterer vs. holographic scatterer using heterogeneous Green's functions"
                                 referrerpolicy="strict-origin-when-cross-origin"
                                 allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </noscript>
-                    <figcaption>Real scatterer vs. Holographic scatterer using heterogeneous Green's functions</figcaption>
+                    <figcaption>Numerical simulation: real scatterer vs. holographic scatterer using heterogeneous Green's functions</figcaption>
                 </figure>
                 <figure class="video-item" data-video="nkDJFB07kew" data-slug="scattering" data-label="Scattering"
                     data-poster="images/video-scattering.jpg">
                     <noscript>
                         <div class="video-frame">
                             <iframe src="https://www.youtube-nocookie.com/embed/nkDJFB07kew" loading="lazy"
-                                title="Real scatterer vs. Holographic scatterer using scattering Green's functions"
+                                title="Numerical simulation: real scatterer vs. holographic scatterer using scattering Green's functions"
                                 referrerpolicy="strict-origin-when-cross-origin"
                                 allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </noscript>
-                    <figcaption>Real scatterer vs. Holographic scatterer using scattering Green's functions</figcaption>
+                    <figcaption>Numerical simulation: real scatterer vs. holographic scatterer using scattering Green's functions</figcaption>
                 </figure>
                 <figure class="video-item" data-video="1wC39kFhgbM" data-slug="homogeneous" data-label="Homogeneous"
                     data-poster="images/video-homogeneous.jpg">
                     <noscript>
                         <div class="video-frame">
                             <iframe src="https://www.youtube-nocookie.com/embed/1wC39kFhgbM" loading="lazy"
-                                title="Real scatterer vs. Holographic scatterer using homogeneous Green's functions"
+                                title="Numerical simulation: real scatterer vs. holographic scatterer using homogeneous Green's functions"
                                 referrerpolicy="strict-origin-when-cross-origin"
                                 allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </noscript>
-                    <figcaption>Real scatterer vs. Holographic scatterer using homogeneous Green's functions</figcaption>
+                    <figcaption>Numerical simulation: real scatterer vs. holographic scatterer using homogeneous Green's functions</figcaption>
                 </figure>
             </div>
 
             <p>
-                The data and code supporting this work are available in the
+                The experimental data behind the paper are available in the
                 <a href="https://doi.org/10.5281/zenodo.16880576" target="_blank">
                     Zenodo repository (doi:10.5281/zenodo.16880576)</a>.
             </p>
 
             <p>
-                This work was funded by the <a href="https://data.snf.ch/grants/grant/197182" target="_blank">Swiss
+                The paper was funded by the <a href="https://data.snf.ch/grants/grant/197182" target="_blank">Swiss
                     National
                     Science Foundation (grant 197182)</a>.
             </p>
 
             <h2>How to cite</h2>
-            <p>BibTeX for the paper and for the data and code on Zenodo. Clicking a block selects it, ready to copy.</p>
+            <p>BibTeX for the paper and for its experimental data on Zenodo. Clicking a block selects it, ready to copy.</p>
             <pre class="bibtex">@article{Muller2023_acoustic_cloning,
   author  = {M{\"u}ller, Jonas and Becker, Theodor S. and Li, Xun and
              Aichele, Johannes and Serra-Garcia, Marc and

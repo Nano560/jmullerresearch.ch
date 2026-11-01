@@ -4,6 +4,10 @@
    data-aspect ("16/9", "1/1", "9/16") gives the shape of the film and of its poster; without it the stage is 2:1.
    data-poster-light is the poster for the light theme (data-poster then serves the dark one). A film that is not on
    YouTube yet has data-soon instead of data-video: it shows its poster marked "Coming soon", without a play button.
+   data-scatterer ("circle", "square" or "cross") sorts the films by the scatterer they show: once there are two or
+   more, a row of the scatterers drawn to scale is shown above the buttons, and the buttons list the chosen one's films
+   (pressing another scatterer keeps the same data-label when that scatterer has it). Give each film a data-slug that
+   includes the scatterer, e.g. "square-long".
    Without JavaScript the page keeps listing them all (each embedded inside <noscript>); with it,
    they are replaced by one player with a poster, a caption and one button per video.
    YouTube is only contacted when someone presses play. #video=<slug> in the address opens that
@@ -11,6 +15,16 @@
 (() => {
     const PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>';
     const embedUrl = (id) => 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0&playsinline=1';
+
+    // The scatterers of the acoustic cloning experiment, to scale (millimetres, centred in a 110 box): a circle of
+    // radius 50, a square of side 100, and a cross of five squares of side 35.
+    const SHAPES = {
+        circle: { label: 'Circle', path: '<circle cx="55" cy="55" r="50"/>' },
+        square: { label: 'Square', path: '<rect x="5" y="5" width="100" height="100"/>' },
+        cross: { label: 'Cross', path: '<path d="M37.5 2.5h35v35h35v35h-35v35h-35v-35h-35v-35h35z"/>' }
+    };
+    const shapeIcon = (name) => '<svg viewBox="0 0 110 110" aria-hidden="true" focusable="false" fill="currentColor">' +
+        SHAPES[name].path + '</svg>';
 
     const make = (tag, className, attrs = {}) => {
         const el = document.createElement(tag);
@@ -35,6 +49,7 @@
                 posterLight: el.dataset.posterLight || '',
                 soon: el.hasAttribute('data-soon'),
                 group: el.dataset.group || '',
+                scatterer: el.dataset.scatterer || '',
                 ratio: aspect(el.dataset.aspect),
                 title: (caption ? caption.textContent : '').replace(/\s+/g, ' ').trim()
             };
@@ -45,6 +60,10 @@
         const stage = make('div', 'video-stage');
         const caption = make('div', 'video-caption', { 'aria-live': 'polite' });
         const buttons = [];
+        // With two or more scatterers: the picker's buttons, and the list of films for each scatterer
+        const scatterers = [...new Set(items.map((item) => item.scatterer).filter((name) => SHAPES[name]))];
+        const pickers = [];
+        const lists = [];
         let current = 0;
         let playing = false;
 
@@ -92,6 +111,8 @@
             play = play && Boolean(items[index].id);   // a film that is not up yet only shows its poster
             playing = play;
             buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+            pickers.forEach(({ name, button }) => button.setAttribute('aria-pressed', String(name === items[index].scatterer)));
+            lists.forEach(({ key, element }) => { element.hidden = key !== items[index].scatterer; });
             caption.textContent = items[index].title;
             stage.style.setProperty('--video-w', items[index].ratio[0]);
             stage.style.setProperty('--video-h', items[index].ratio[1]);
@@ -112,12 +133,31 @@
 
         if (items.length > 1) {
             const choices = make('div', 'video-choices-wrap');
-            [...new Set(items.map((item) => item.group))].forEach((group) => {
+            const picker = scatterers.length > 1;
+            if (picker) {
+                const row = make('div', 'video-scatterers', { role: 'group', 'aria-label': 'Scatterer' });
+                scatterers.forEach((name) => {
+                    const button = make('button', 'video-scatterer', { type: 'button', 'aria-pressed': 'false' });
+                    button.innerHTML = shapeIcon(name);
+                    button.append(Object.assign(make('span'), { textContent: SHAPES[name].label }));
+                    button.addEventListener('click', () => {
+                        const same = items.findIndex((item) => item.scatterer === name && item.label === items[current].label);
+                        select(same >= 0 ? same : items.findIndex((item) => item.scatterer === name), { hash: true });
+                    });
+                    pickers.push({ name, button });
+                    row.append(button);
+                });
+                choices.append(row);
+            }
+            // The buttons are listed by scatterer when there is a picker, else by data-group (with its name above)
+            const keyOf = (item) => (picker ? item.scatterer : item.group);
+            [...new Set(items.map(keyOf))].forEach((key) => {
                 const section = make('div', 'video-group');
-                if (group) section.append(Object.assign(make('div', 'video-group-label'), { textContent: group }));
-                const list = make('div', 'video-choices', { role: 'group', 'aria-label': group ? 'Videos: ' + group : 'Choose a video' });
+                if (key && !picker) section.append(Object.assign(make('div', 'video-group-label'), { textContent: key }));
+                const name = picker && SHAPES[key] ? SHAPES[key].label : key;
+                const list = make('div', 'video-choices', { role: 'group', 'aria-label': name ? 'Videos: ' + name : 'Choose a video' });
                 items.forEach((item, i) => {
-                    if (item.group !== group) return;
+                    if (keyOf(item) !== key) return;
                     const button = make('button', '', { type: 'button', 'aria-pressed': 'false' });
                     button.textContent = item.label;
                     button.addEventListener('click', () => select(i, { hash: true }));
@@ -125,6 +165,7 @@
                     list.append(button);
                 });
                 section.append(list);
+                if (picker) lists.push({ key, element: section });
                 choices.append(section);
             });
             ui.append(choices);

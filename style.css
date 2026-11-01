@@ -407,8 +407,11 @@ html[data-theme="light"] .video-poster .poster-dark {
     transition: background 0.15s ease, color 0.15s ease;
 }
 
-.video-choices button:hover {
-    background: rgba(128, 128, 128, 0.2);
+/* Only where a pointer can hover: on a touchscreen the tint would stay on the button last touched */
+@media (hover: hover) {
+    .video-choices button:hover {
+        background: rgba(128, 128, 128, 0.2);
+    }
 }
 
 .video-choices button[aria-pressed="true"] {
@@ -417,6 +420,57 @@ html[data-theme="light"] .video-poster .poster-dark {
 }
 
 .video-choices button:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 3px;
+}
+
+/* Scatterer picker (videos.js): the scatterers drawn to scale, one to press; the buttons below list the films of the
+   chosen one. Each is a square tile well above the 44px touch size. */
+.video-scatterers {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.video-scatterer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 84px;
+    min-height: 84px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--link);
+    background: transparent;
+    border: 1.5px solid var(--link);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.video-scatterer svg {
+    width: 40px;
+    height: 40px;
+}
+
+@media (hover: hover) {
+    .video-scatterer:hover {
+        background: rgba(128, 128, 128, 0.2);
+    }
+}
+
+.video-scatterer[aria-pressed="true"] {
+    color: var(--bg);
+    background: var(--link);
+}
+
+.video-scatterer:focus-visible {
     outline: 2px solid var(--link);
     outline-offset: 3px;
 }
@@ -825,8 +879,9 @@ nav a.active {
         margin: 0 12px;
     }
 
+    /* Two to a row: four cuts take two rows instead of four; an odd one out spans the row */
     .video-choices button {
-        flex: 1 1 100%;
+        flex: 1 1 calc(50% - 5px);
     }
 
     .cv-list > li,

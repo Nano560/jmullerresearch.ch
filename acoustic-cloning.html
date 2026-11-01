@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acoustic Cloning – Jonas Müller</title>
     <meta name="description"
-        content="Acoustic cloning (Müller et al., Physical Review Applied 2023): reproducing a physical scatterer holographically in real time with immersive boundary conditions. Experimental paper and data, with numerical simulations as additional material.">
+        content="Acoustic cloning (Müller et al., Physical Review Applied 2023): reproducing a physical scatterer holographically in real time with immersive boundary conditions. Experimental paper and data, and a film in preparation.">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
@@ -17,7 +17,7 @@
     <link rel="canonical" href="https://jmullerresearch.ch/acoustic-cloning.html">
     <!-- Open Graph -->
     <meta property="og:title" content="Acoustic Cloning – Jonas Müller">
-    <meta property="og:description" content="Acoustic cloning: an experimental paper on holographic scatterers using immersive boundary conditions (Physical Review Applied), with numerical simulations as separate additional material.">
+    <meta property="og:description" content="Acoustic cloning: an experimental paper on holographic scatterers using immersive boundary conditions (Physical Review Applied), with a film in preparation.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://jmullerresearch.ch/acoustic-cloning.html">
     <meta property="og:image" content="https://jmullerresearch.ch/images/og-artwork.jpg">
@@ -27,7 +27,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Acoustic Cloning – Jonas Müller">
-    <meta name="twitter:description" content="Acoustic cloning: an experimental paper (Physical Review Applied), with numerical simulations as additional material.">
+    <meta name="twitter:description" content="Acoustic cloning: an experimental paper (Physical Review Applied), with a film in preparation.">
     <meta name="twitter:image" content="https://jmullerresearch.ch/images/og-artwork.jpg">
     <meta name="twitter:image:alt" content="Abstract artwork: overlapping translucent circles in purple and blue around one bright green ring">
     <!-- Structured data: the paper behind this page, authored by the site's #person entity -->
@@ -122,7 +122,7 @@
             </p>
 
             <div class="video-switcher" data-video-switcher>
-                <figure class="video-item" data-soon data-slug="long" data-label="Long" data-aspect="16/9"
+                <figure class="video-item" data-soon data-scatterer="circle" data-slug="circle-long" data-label="Long" data-aspect="16/9"
                     data-poster="images/video-cloning-long.jpg" data-poster-light="images/video-cloning-long-light.jpg">
                     <picture>
                         <source srcset="images/video-cloning-long-light.jpg" media="(prefers-color-scheme: light)">
@@ -131,7 +131,7 @@
                     </picture>
                     <figcaption>Acoustic cloning: the long cut</figcaption>
                 </figure>
-                <figure class="video-item" data-soon data-slug="short" data-label="Short" data-aspect="9/16"
+                <figure class="video-item" data-soon data-scatterer="circle" data-slug="circle-short" data-label="Short" data-aspect="9/16"
                     data-poster="images/video-cloning-short.jpg" data-poster-light="images/video-cloning-short-light.jpg">
                     <picture>
                         <source srcset="images/video-cloning-short-light.jpg" media="(prefers-color-scheme: light)">
@@ -140,7 +140,7 @@
                     </picture>
                     <figcaption>Acoustic cloning: the short cut</figcaption>
                 </figure>
-                <figure class="video-item" data-soon data-slug="story" data-label="Story" data-aspect="1/1"
+                <figure class="video-item" data-soon data-scatterer="circle" data-slug="circle-story" data-label="Story" data-aspect="1/1"
                     data-poster="images/video-cloning-story.jpg" data-poster-light="images/video-cloning-story-light.jpg">
                     <picture>
                         <source srcset="images/video-cloning-story-light.jpg" media="(prefers-color-scheme: light)">
@@ -149,7 +149,7 @@
                     </picture>
                     <figcaption>Acoustic cloning: the story cut</figcaption>
                 </figure>
-                <figure class="video-item" data-soon data-slug="hearing" data-label="Hearing" data-aspect="1/1"
+                <figure class="video-item" data-soon data-scatterer="circle" data-slug="circle-hearing" data-label="Hearing" data-aspect="1/1"
                     data-poster="images/video-cloning-hearing.jpg" data-poster-light="images/video-cloning-hearing-light.jpg">
                     <picture>
                         <source srcset="images/video-cloning-hearing-light.jpg" media="(prefers-color-scheme: light)">
@@ -157,53 +157,6 @@
                             width="960" height="960" loading="lazy">
                     </picture>
                     <figcaption>Acoustic cloning: the hearing cut</figcaption>
-                </figure>
-            </div>
-
-            <h2>Numerical companion</h2>
-            <p>
-                The paper reports an experiment only. The films below are separate, purely numerical material, shown
-                as an additional resource: simulated acoustic wave fields for the same 2D waveguide as in the paper,
-                where in each film different Green's functions are used to extrapolate the wave field. Nothing shown
-                in them is a measurement.
-            </p>
-
-            <div class="video-switcher" data-video-switcher>
-                <figure class="video-item" data-video="1Kg33ZAz0II" data-slug="heterogeneous" data-label="Heterogeneous"
-                    data-poster="images/video-heterogeneous.jpg">
-                    <noscript>
-                        <div class="video-frame">
-                            <iframe src="https://www.youtube-nocookie.com/embed/1Kg33ZAz0II" loading="lazy"
-                                title="Numerical simulation: real scatterer vs. holographic scatterer using heterogeneous Green's functions"
-                                referrerpolicy="strict-origin-when-cross-origin"
-                                allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                    </noscript>
-                    <figcaption>Numerical simulation: real scatterer vs. holographic scatterer using heterogeneous Green's functions</figcaption>
-                </figure>
-                <figure class="video-item" data-video="nkDJFB07kew" data-slug="scattering" data-label="Scattering"
-                    data-poster="images/video-scattering.jpg">
-                    <noscript>
-                        <div class="video-frame">
-                            <iframe src="https://www.youtube-nocookie.com/embed/nkDJFB07kew" loading="lazy"
-                                title="Numerical simulation: real scatterer vs. holographic scatterer using scattering Green's functions"
-                                referrerpolicy="strict-origin-when-cross-origin"
-                                allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                    </noscript>
-                    <figcaption>Numerical simulation: real scatterer vs. holographic scatterer using scattering Green's functions</figcaption>
-                </figure>
-                <figure class="video-item" data-video="1wC39kFhgbM" data-slug="homogeneous" data-label="Homogeneous"
-                    data-poster="images/video-homogeneous.jpg">
-                    <noscript>
-                        <div class="video-frame">
-                            <iframe src="https://www.youtube-nocookie.com/embed/1wC39kFhgbM" loading="lazy"
-                                title="Numerical simulation: real scatterer vs. holographic scatterer using homogeneous Green's functions"
-                                referrerpolicy="strict-origin-when-cross-origin"
-                                allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                    </noscript>
-                    <figcaption>Numerical simulation: real scatterer vs. holographic scatterer using homogeneous Green's functions</figcaption>
                 </figure>
             </div>
 

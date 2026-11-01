@@ -299,6 +299,50 @@ nav a {
     object-fit: cover;
 }
 
+/* A poster that comes in a dark and a light version (videos.js): the one matching the theme shows.
+   The conditions are the ones that pick the light palette above. */
+.video-poster .poster-light {
+    display: none;
+}
+
+@media (prefers-color-scheme: light) {
+    html:not([data-theme="dark"]) .video-poster .poster-light {
+        display: block;
+    }
+
+    html:not([data-theme="dark"]) .video-poster .poster-dark {
+        display: none;
+    }
+}
+
+html[data-theme="light"] .video-poster .poster-light {
+    display: block;
+}
+
+html[data-theme="light"] .video-poster .poster-dark {
+    display: none;
+}
+
+/* A film that is not up yet: its poster, marked, with nothing to press */
+.video-poster.is-soon {
+    cursor: default;
+}
+
+.video-soon {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    padding: 5px 14px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
 .video-play {
     position: absolute;
     top: 50%;

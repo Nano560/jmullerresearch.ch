@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- PROTOTYPE (2026-10-30). Before this goes live:
-     - [YT_MOVIE], [YT_EXPLAINER]: YouTube ids of the two videos (data-video and the noscript embeds)
-     - [REPO_URL]: the public repository of the Python code
-     - the two posters are provisional frames from the OLD renders (thesis sign, old spectrum); take the final frames
-       only after the re-renders with ordinary capacitors (1280x640, rows 40-680 of a 1280x720 frame)
-     - the movie's title is still open in the thesis repo ("The shape of a band" is the working title)
+<!-- Page for the MSc thesis. Prototype 2026-10-30; to go live with the film posters standing in for the films (Jonas,
+     2026-11-01, relayed by the thesis session). Open:
+     - the two films are not on YouTube yet. Their figures carry data-soon and show the posters marked "Coming soon".
+       When a film is up: replace data-soon with data-video="<YouTube id>", add its noscript embed (as on
+       acoustic-cloning.html), and change "in preparation" in the first paragraph and the meta descriptions.
+     - posters: images/video-ti-{movie,explainer}[-light].jpg (1280x720; dark and light), made by python -m
+       topins.poster in the thesis repo. The explainer posters' colours were under review on 2026-11-01 and may be
+       replaced under the same names. Both posters read "Non-Hermitian Topological Insulators", which the captions follow.
+     - source code and thesis PDF are not linked while the page goes live first. Once the repository is public, add
+       "Source code on GitHub" back with its address. The thesis PDF is still undecided (Jonas, 2026-10-31: placeholder
+       for now; 2026-10-30: "no PDF for now"): rights and the lab's consent, private details in the file and its
+       metadata, and the repo is public, so a committed PDF stays in the history. An Infoscience record would do too.
      - capacitors: ordinary, positive (Jonas, 2026-10-30); the thesis print uses the opposite sign, hence the note
        under "In short"
-     - [THESIS_PDF]: the thesis PDF (an Infoscience record, or a file on the site). Still undecided (Jonas, 2026-10-31:
-       placeholder for now; on 2026-10-30 it was "no PDF for now"). Before it is filled: rights and the lab's consent,
-       private details in the file and its metadata, and the repo is public, so a committed PDF stays in the history.
-       If the answer is no, delete the link and the sentence around it.
      - in the same landing, add /topological-insulators.html to scripts/permanent-urls.txt (Jonas, 2026-10-31:
        the address a published QR code points to stays for good; the push hook checks that list)
-     This page's URL is printed as a QR code at the end of both videos: never rename the file. -->
+     This page's URL is printed as a QR code at the end of both films: never rename the file. -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topological Insulators – Jonas Müller</title>
     <meta name="description"
-        content="A topological invariant defined from the transfer matrix of one cell: MSc thesis by Jonas Müller (EPFL, 2021), with videos and Python code from a 2026 reproduction of its results.">
+        content="A topological invariant defined from the transfer matrix of one cell: MSc thesis by Jonas Müller (EPFL, 2021), and two films from a 2026 reproduction of its results.">
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
@@ -34,7 +36,7 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Topological Insulators – Jonas Müller">
     <meta property="og:description"
-        content="A topological invariant defined from the transfer matrix of one cell. MSc thesis (EPFL, 2021), with videos and code.">
+        content="A topological invariant defined from the transfer matrix of one cell. MSc thesis (EPFL, 2021), with two films in preparation.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://jmullerresearch.ch/topological-insulators.html">
     <meta property="og:image" content="https://jmullerresearch.ch/images/og-artwork.jpg">
@@ -45,7 +47,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Topological Insulators – Jonas Müller">
     <meta name="twitter:description"
-        content="A topological invariant defined from the transfer matrix of one cell. MSc thesis (EPFL, 2021), with videos and code.">
+        content="A topological invariant defined from the transfer matrix of one cell. MSc thesis (EPFL, 2021), with two films in preparation.">
     <meta name="twitter:image" content="https://jmullerresearch.ch/images/og-artwork.jpg">
     <meta name="twitter:image:alt" content="Abstract artwork: overlapping translucent circles in purple and blue around one bright green ring">
     <script type="application/ld+json">
@@ -87,10 +89,8 @@
                 <p>
                     MSc thesis <em>Non-Hermitian Topological Insulators</em>,
                     <a href="https://www.epfl.ch/labs/lwe/" target="_blank">Laboratory of Wave Engineering</a>,
-                    EPFL, 2021, supervised by Prof. Romain Fleury. The videos on this page come from a 2026
-                    reproduction of its results: the original Mathematica code, ported to Python. Source code on
-                    <a href="[REPO_URL]" target="_blank">GitHub</a>; the thesis as a
-                    <a href="[THESIS_PDF]" target="_blank">PDF</a>.
+                    EPFL, 2021, supervised by Prof. Romain Fleury. Two films are in preparation; they come from a
+                    2026 reproduction of its results: the original Mathematica code, ported to Python.
                 </p>
 
                 <h2>In short</h2>
@@ -116,34 +116,28 @@
                     yet flips their labels.
                 </p>
                 <p class="source-note">
-                    The videos use ordinary capacitors. The thesis takes the opposite sign for their admittance, so
+                    The films use ordinary capacitors. The thesis takes the opposite sign for their admittance, so
                     its frequencies differ from those shown here; the topology is the same.
                 </p>
 
                 <div class="video-switcher" data-video-switcher>
-                    <figure class="video-item" data-video="[YT_MOVIE]" data-slug="movie" data-label="Movie"
-                        data-poster="images/video-topo-movie.jpg">
-                        <noscript>
-                            <div class="video-frame">
-                                <iframe src="https://www.youtube-nocookie.com/embed/[YT_MOVIE]" loading="lazy"
-                                    title="The shape of a band: why some bands wrap the pipe and others slide off"
-                                    referrerpolicy="strict-origin-when-cross-origin"
-                                    allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </div>
-                        </noscript>
-                        <figcaption>The shape of a band: why some bands wrap the pipe and others slide off (3D animation)</figcaption>
+                    <figure class="video-item" data-soon data-slug="movie" data-label="3D movie" data-aspect="16/9"
+                        data-poster="images/video-ti-movie.jpg" data-poster-light="images/video-ti-movie-light.jpg">
+                        <picture>
+                            <source srcset="images/video-ti-movie-light.jpg" media="(prefers-color-scheme: light)">
+                            <img src="images/video-ti-movie.jpg" alt="Poster of the 3D movie, coming soon"
+                                width="1280" height="720" loading="lazy">
+                        </picture>
+                        <figcaption>Non-Hermitian Topological Insulators: the 3D movie</figcaption>
                     </figure>
-                    <figure class="video-item" data-video="[YT_EXPLAINER]" data-slug="explainer" data-label="Explainer"
-                        data-poster="images/video-topo-explainer.jpg">
-                        <noscript>
-                            <div class="video-frame">
-                                <iframe src="https://www.youtube-nocookie.com/embed/[YT_EXPLAINER]" loading="lazy"
-                                    title="How the topology of a 2×2 transfer matrix is defined"
-                                    referrerpolicy="strict-origin-when-cross-origin"
-                                    allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </div>
-                        </noscript>
-                        <figcaption>Explainer: how the topology of a 2×2 transfer matrix is defined (2D animation)</figcaption>
+                    <figure class="video-item" data-soon data-slug="explainer" data-label="2D explainer" data-aspect="16/9"
+                        data-poster="images/video-ti-explainer.jpg" data-poster-light="images/video-ti-explainer-light.jpg">
+                        <picture>
+                            <source srcset="images/video-ti-explainer-light.jpg" media="(prefers-color-scheme: light)">
+                            <img src="images/video-ti-explainer.jpg" alt="Poster of the 2D explainer, coming soon"
+                                width="1280" height="720" loading="lazy">
+                        </picture>
+                        <figcaption>Non-Hermitian Topological Insulators: the 2D explainer</figcaption>
                     </figure>
                 </div>
             </div>

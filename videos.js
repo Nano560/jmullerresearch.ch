@@ -2,6 +2,8 @@
    The page lists every video as <figure class="video-item"> inside [data-video-switcher], with
    data-video (YouTube id), data-slug, data-label, data-poster and an optional data-group.
    data-aspect ("16/9", "1/1", "9/16") gives the shape of the film and of its poster; without it the stage is 2:1.
+   data-poster-light is the poster for the light theme (data-poster then serves the dark one). A film that is not on
+   YouTube yet has data-soon instead of data-video: it shows its poster marked "Coming soon", without a play button.
    Without JavaScript the page keeps listing them all (each embedded inside <noscript>); with it,
    they are replaced by one player with a poster, a caption and one button per video.
    YouTube is only contacted when someone presses play. #video=<slug> in the address opens that
@@ -30,11 +32,13 @@
                 slug: el.dataset.slug || el.dataset.video,
                 label: el.dataset.label || el.dataset.slug || el.dataset.video,
                 poster: el.dataset.poster || '',
+                posterLight: el.dataset.posterLight || '',
+                soon: el.hasAttribute('data-soon'),
                 group: el.dataset.group || '',
                 ratio: aspect(el.dataset.aspect),
                 title: (caption ? caption.textContent : '').replace(/\s+/g, ' ').trim()
             };
-        }).filter((item) => item.id);
+        }).filter((item) => item.id || item.soon);
         if (!items.length) return;
 
         const ui = make('div', 'video-ui');
@@ -44,12 +48,25 @@
         let current = 0;
         let playing = false;
 
+        // The poster as one picture, or as a dark and a light one of which style.css shows the one that matches the theme
+        const pictures = (item) => {
+            const size = { alt: '', width: '1280', height: String(Math.round(1280 * item.ratio[1] / item.ratio[0])) };
+            if (!item.poster) return [];
+            if (!item.posterLight) return [make('img', '', { src: item.poster, ...size })];
+            return [
+                make('img', 'poster-dark', { src: item.poster, loading: 'lazy', ...size }),
+                make('img', 'poster-light', { src: item.posterLight, loading: 'lazy', ...size })
+            ];
+        };
+
         const poster = (item) => {
-            const button = make('button', 'video-poster', { type: 'button', 'aria-label': 'Play video: ' + item.title });
-            if (item.poster) {
-                const img = make('img', '', { src: item.poster, alt: '', width: '1280', height: String(Math.round(1280 * item.ratio[1] / item.ratio[0])) });
-                button.append(img);
+            if (item.soon) {
+                const still = make('div', 'video-poster is-soon', { role: 'img', 'aria-label': item.title + ' (coming soon)' });
+                still.append(...pictures(item), Object.assign(make('span', 'video-soon'), { textContent: 'Coming soon' }));
+                return still;
             }
+            const button = make('button', 'video-poster', { type: 'button', 'aria-label': 'Play video: ' + item.title });
+            button.append(...pictures(item));
             const play = make('span', 'video-play');
             play.innerHTML = PLAY;
             button.append(play);
@@ -72,6 +89,7 @@
         // Choosing while a video is playing starts the new one straight away; before that it just shows its poster
         const select = (index, { play = playing, hash = false } = {}) => {
             current = index;
+            play = play && Boolean(items[index].id);   // a film that is not up yet only shows its poster
             playing = play;
             buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
             caption.textContent = items[index].title;

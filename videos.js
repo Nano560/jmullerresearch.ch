@@ -168,7 +168,8 @@
                 if (picker) lists.push({ key, element: section });
                 choices.append(section);
             });
-            ui.append(choices);
+            // Above the film, so that the buttons keep their place when a film of another shape is chosen
+            ui.prepend(choices);
         }
 
         select(Math.max(0, indexFromHash()), { play: false });

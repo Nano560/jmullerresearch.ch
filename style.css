@@ -385,6 +385,12 @@ html[data-theme="light"] .video-poster .poster-dark {
     color: var(--caption);
 }
 
+/* The buttons sit above the film: films come in different shapes, and with the buttons below, every change of
+   shape would move them away from the finger. */
+.video-choices-wrap {
+    margin-bottom: 22px;
+}
+
 .video-choices {
     display: flex;
     flex-wrap: wrap;
@@ -475,7 +481,8 @@ html[data-theme="light"] .video-poster .poster-dark {
     outline-offset: 3px;
 }
 
-.video-group + .video-group {
+/* Spacing between listed groups; the hidden ones (other scatterers) do not count */
+.video-group:not([hidden]) ~ .video-group:not([hidden]) {
     margin-top: 18px;
 }
 

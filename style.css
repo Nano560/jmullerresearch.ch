@@ -252,6 +252,18 @@ nav a {
     margin: 40px 0;
 }
 
+/* The list of stills a film that is not up yet shows without JavaScript (or while a browser still holds an older
+   videos.js that does not know it): each at its own shape, never wider than the column nor taller than the screen. */
+.video-item picture img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: min(85vh, 760px);
+    margin-inline: auto;
+    border-radius: 8px;
+}
+
 .video-switcher {
     margin: 40px 0 60px;
 }

@@ -1,9 +1,0 @@
-# Addresses that a QR code on a published video points to. They keep working at exactly this address.
-# A page that has to move leaves its old file in place, forwarding to the new one.
-# One path per line; "/" is index.html. scripts/check_permanent_urls.py checks the list on every push.
-# A page is added here when it goes live, if a video's QR code will point to it.
-
-/
-/acoustic-cloning.html
-/acoustic-disguising.html
-/topological-insulators.html

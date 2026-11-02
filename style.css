@@ -165,9 +165,22 @@ body.page-home {
     /* Darkness of the overlay in front of the background image */
     --overlay: rgba(0, 0, 0, 0.28);
     background-image: linear-gradient(var(--overlay), var(--overlay)), url('images/correlation30.webp');
+    background-image: linear-gradient(var(--overlay), var(--overlay)),
+        image-set(url('images/correlation30-1600.avif') type('image/avif'), url('images/correlation30.webp') type('image/webp'));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+/* Wider than a phone the image is shown at the size of its original (3398 px, so crisp at twice the density of a 1700 px
+   wide window); narrower, the 1600 px one is enough even at three times the density. A browser that does not know image-set()
+   or AVIF keeps the 2400 px WebP of the first line. */
+@media (min-width: 800px) {
+    body.page-home {
+        background-image: linear-gradient(var(--overlay), var(--overlay)), url('images/correlation30.webp');
+        background-image: linear-gradient(var(--overlay), var(--overlay)),
+            image-set(url('images/correlation30.avif') type('image/avif'), url('images/correlation30.webp') type('image/webp'));
+    }
 }
 
 /* Embedded videos. Keep the iframe's own colour scheme: on a dark page the browser would
@@ -309,6 +322,11 @@ nav a {
     padding: 0;
     background: #000;
     cursor: pointer;
+}
+
+/* The posters come as <picture> (AVIF, with the JPEG as the fallback): the wrapper takes no box of its own */
+.video-poster picture {
+    display: contents;
 }
 
 .video-poster img {

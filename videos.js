@@ -4,7 +4,8 @@
    data-aspect ("16/9", "1/1", "9/16") gives the shape of the film and of its poster; without it the stage is 2:1.
    A film that should not fill the column sets --video-fit (a share of it, 0 to 1) in its style attribute, e.g. so that cuts
    made at different pixel sizes are shown at the same scale; without it the film takes all the room it may.
-   data-poster-light is the poster for the light theme (data-poster then serves the dark one). A film that is not on
+   data-poster-light is the poster for the light theme (data-poster then serves the dark one). data-poster-avif and
+   data-poster-light-avif are the same posters as AVIF, which a browser that knows the format takes in place of the JPEG. A film that is not on
    YouTube yet has data-soon instead of data-video: it shows its poster marked "Coming soon", without a play button.
    data-scatterer ("circle", "square" or "cross") sorts the films by the scatterer they show: once there are two or
    more, a row of the scatterers drawn to scale is shown above the buttons, and the buttons list the chosen one's films
@@ -49,6 +50,8 @@
                 label: el.dataset.label || el.dataset.slug || el.dataset.video,
                 poster: el.dataset.poster || '',
                 posterLight: el.dataset.posterLight || '',
+                posterAvif: el.dataset.posterAvif || '',
+                posterLightAvif: el.dataset.posterLightAvif || '',
                 soon: el.hasAttribute('data-soon'),
                 group: el.dataset.group || '',
                 scatterer: el.dataset.scatterer || '',
@@ -79,10 +82,18 @@
         const pictures = (item) => {
             const size = { alt: '', width: '1280', height: String(Math.round(1280 * item.ratio[1] / item.ratio[0])) };
             if (!item.poster) return [];
-            if (!item.posterLight) return [make('img', '', { src: item.poster, ...size })];
+            // An AVIF next to the JPEG goes in a <picture>, which a browser that cannot show AVIF reads past
+            const image = (cls, jpeg, avif, extra) => {
+                const img = make('img', cls, { src: jpeg, ...extra, ...size });
+                if (!avif) return img;
+                const picture = make('picture', '');
+                picture.append(make('source', '', { srcset: avif, type: 'image/avif' }), img);
+                return picture;
+            };
+            if (!item.posterLight) return [image('', item.poster, item.posterAvif, {})];
             return [
-                make('img', 'poster-dark', { src: item.poster, loading: 'lazy', ...size }),
-                make('img', 'poster-light', { src: item.posterLight, loading: 'lazy', ...size })
+                image('poster-dark', item.poster, item.posterAvif, { loading: 'lazy' }),
+                image('poster-light', item.posterLight, item.posterLightAvif, { loading: 'lazy' })
             ];
         };
 

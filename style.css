@@ -164,23 +164,15 @@ body {
 body.page-home {
     /* Darkness of the overlay in front of the background image */
     --overlay: rgba(0, 0, 0, 0.28);
+    /* The original (3398 px) as AVIF, for every screen: the square image is scaled with "cover", so on a phone it is drawn
+       as high as the screen (about 800 to 930 CSS px), and at three times the density that wants 2400 to 2800 px. A
+       browser that does not know image-set() or AVIF keeps the 2400 px WebP of the first line. */
     background-image: linear-gradient(var(--overlay), var(--overlay)), url('images/correlation30.webp');
     background-image: linear-gradient(var(--overlay), var(--overlay)),
-        image-set(url('images/correlation30-1600.avif') type('image/avif'), url('images/correlation30.webp') type('image/webp'));
+        image-set(url('images/correlation30.avif') type('image/avif'), url('images/correlation30.webp') type('image/webp'));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-/* Wider than a phone the image is shown at the size of its original (3398 px, so crisp at twice the density of a 1700 px
-   wide window); narrower, the 1600 px one is enough even at three times the density. A browser that does not know image-set()
-   or AVIF keeps the 2400 px WebP of the first line. */
-@media (min-width: 800px) {
-    body.page-home {
-        background-image: linear-gradient(var(--overlay), var(--overlay)), url('images/correlation30.webp');
-        background-image: linear-gradient(var(--overlay), var(--overlay)),
-            image-set(url('images/correlation30.avif') type('image/avif'), url('images/correlation30.webp') type('image/webp'));
-    }
 }
 
 /* Embedded videos. Keep the iframe's own colour scheme: on a dark page the browser would

@@ -12,7 +12,7 @@
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/playfair-display-700-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <script src="videos.js?v=2" defer></script>
+    <script src="videos.js?v=4" defer></script>
     <link rel="icon" type="image/png" sizes="192x192" href="images/site-icon-192.png">
     <meta name="theme-color" content="#0d0817">
     <script src="theme.js"></script>
@@ -106,21 +106,27 @@
 
                 <div class="video-switcher" data-video-switcher>
                     <figure class="video-item" data-soon data-slug="movie" data-label="3D movie" data-aspect="16/9"
-                        data-poster="images/video-ti-movie.jpg" data-poster-light="images/video-ti-movie-light.jpg">
-                        <picture>
+                        data-poster="images/video-ti-movie.jpg" data-poster-light="images/video-ti-movie-light.jpg"
+                        data-poster-avif="images/video-ti-movie.avif" data-poster-light-avif="images/video-ti-movie-light.avif">
+                        <noscript><picture>
+                            <source srcset="images/video-ti-movie-light.avif" type="image/avif" media="(prefers-color-scheme: light)">
                             <source srcset="images/video-ti-movie-light.jpg" media="(prefers-color-scheme: light)">
+                            <source srcset="images/video-ti-movie.avif" type="image/avif">
                             <img src="images/video-ti-movie.jpg" alt="Poster of the 3D movie, coming soon"
-                                width="1280" height="720" loading="lazy">
-                        </picture>
+                                width="1920" height="1080" loading="lazy">
+                        </picture></noscript>
                         <figcaption>Non-Hermitian Topological Insulators: the 3D movie</figcaption>
                     </figure>
                     <figure class="video-item" data-soon data-slug="explainer" data-label="2D explainer" data-aspect="16/9"
-                        data-poster="images/video-ti-explainer.jpg" data-poster-light="images/video-ti-explainer-light.jpg">
-                        <picture>
+                        data-poster="images/video-ti-explainer.jpg" data-poster-light="images/video-ti-explainer-light.jpg"
+                        data-poster-avif="images/video-ti-explainer.avif" data-poster-light-avif="images/video-ti-explainer-light.avif">
+                        <noscript><picture>
+                            <source srcset="images/video-ti-explainer-light.avif" type="image/avif" media="(prefers-color-scheme: light)">
                             <source srcset="images/video-ti-explainer-light.jpg" media="(prefers-color-scheme: light)">
+                            <source srcset="images/video-ti-explainer.avif" type="image/avif">
                             <img src="images/video-ti-explainer.jpg" alt="Poster of the 2D explainer, coming soon"
-                                width="1280" height="720" loading="lazy">
-                        </picture>
+                                width="1920" height="1080" loading="lazy">
+                        </picture></noscript>
                         <figcaption>Non-Hermitian Topological Insulators: the 2D explainer</figcaption>
                     </figure>
                 </div>

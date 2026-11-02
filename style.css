@@ -289,8 +289,10 @@ nav a {
 /* Each film keeps its own shape: --video-w and --video-h come from data-aspect (set by videos.js, or inline on the
    <noscript> frame) and default to 2:1. A tall film is held to what fits on screen instead of filling it.
    --video-fit (from the film's own style attribute, default 1) is the share of the column the film takes. The cuts of a
-   film are made at different pixel sizes (1280 px wide, 960 px square, 720 px wide), so that switching from one to another
-   does not look like scaling, each takes the share of the column that its width is of the widest. --video-reach (set by
+   film are made at different pixel sizes and the scene is not at the same scale in each (the scatterer is 78 px across in
+   the wide and the tall frame, 68 px in the square ones), so that switching from one to another does not look like
+   scaling, each takes the share of the column at which the scatterer comes out the same size (1, 0.57 and 0.645 for the
+   acoustic cloning cuts; measure it again when the frames change). --video-reach (set by
    videos.js when any film has a share) carries the height limit over to all of them, so that on a low screen they shrink
    together and the tall one does not shrink alone. */
 .video-frame,

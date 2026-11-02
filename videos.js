@@ -2,6 +2,8 @@
    The page lists every video as <figure class="video-item"> inside [data-video-switcher], with
    data-video (YouTube id), data-slug, data-label, data-poster and an optional data-group.
    data-aspect ("16/9", "1/1", "9/16") gives the shape of the film and of its poster; without it the stage is 2:1.
+   A film that should not fill the column sets --video-fit (a share of it, 0 to 1) in its style attribute, e.g. so that cuts
+   made at different pixel sizes are shown at the same scale; without it the film takes all the room it may.
    data-poster-light is the poster for the light theme (data-poster then serves the dark one). A film that is not on
    YouTube yet has data-soon instead of data-video: it shows its poster marked "Coming soon", without a play button.
    data-scatterer ("circle", "square" or "cross") sorts the films by the scatterer they show: once there are two or
@@ -51,10 +53,16 @@
                 group: el.dataset.group || '',
                 scatterer: el.dataset.scatterer || '',
                 ratio: aspect(el.dataset.aspect),
+                fit: Math.min(1, Number.parseFloat(el.style.getPropertyValue('--video-fit'))) || 1,
                 title: (caption ? caption.textContent : '').replace(/\s+/g, ' ').trim()
             };
         }).filter((item) => item.id || item.soon);
         if (!items.length) return;
+        // Films that do not fill the column: the limit on their height holds for all of them together, set by the one it
+        // is hardest on, so that they keep their sizes in proportion to each other on a low screen too
+        if (items.some((item) => item.fit < 1)) {
+            root.style.setProperty('--video-reach', String(Math.min(...items.map((item) => item.ratio[0] / (item.ratio[1] * item.fit)))));
+        }
 
         const ui = make('div', 'video-ui');
         const stage = make('div', 'video-stage');
@@ -116,6 +124,7 @@
             caption.textContent = items[index].title;
             stage.style.setProperty('--video-w', items[index].ratio[0]);
             stage.style.setProperty('--video-h', items[index].ratio[1]);
+            stage.style.setProperty('--video-fit', items[index].fit);
             stage.replaceChildren(play ? player(items[index]) : poster(items[index]));
             if (hash) {
                 try {

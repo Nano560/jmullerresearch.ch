@@ -253,11 +253,12 @@ nav a {
 }
 
 /* The list of stills a film that is not up yet shows without JavaScript (or while a browser still holds an older
-   videos.js that does not know it): each at its own shape, never wider than the column nor taller than the screen. */
+   videos.js that does not know it): each at its own shape, never wider than the column nor taller than the screen,
+   and at the width its --video-fit gives (see below). */
 .video-item picture img {
     display: block;
     width: auto;
-    max-width: 100%;
+    max-width: calc(100% * var(--video-fit, 1));
     height: auto;
     max-height: min(85vh, 760px);
     margin-inline: auto;
@@ -273,12 +274,18 @@ nav a {
 }
 
 /* Each film keeps its own shape: --video-w and --video-h come from data-aspect (set by videos.js, or inline on the
-   <noscript> frame) and default to 2:1. A tall film is held to what fits on screen instead of filling it. */
+   <noscript> frame) and default to 2:1. A tall film is held to what fits on screen instead of filling it.
+   --video-fit (from the film's own style attribute, default 1) is the share of the column the film takes. The cuts of a
+   film are made at different pixel sizes (1280 px wide, 960 px square, 720 px wide), so that switching from one to another
+   does not look like scaling, each takes the share of the column that its width is of the widest. --video-reach (set by
+   videos.js when any film has a share) carries the height limit over to all of them, so that on a low screen they shrink
+   together and the tall one does not shrink alone. */
 .video-frame,
 .video-stage {
     position: relative;
     width: 100%;
-    max-width: calc(min(85vh, 760px) * var(--video-w, 2) / var(--video-h, 1));
+    max-width: min(calc(min(100%, min(85vh, 760px) * var(--video-reach, 1000)) * var(--video-fit, 1)),
+                   calc(min(85vh, 760px) * var(--video-w, 2) / var(--video-h, 1)));
     margin-inline: auto;
     aspect-ratio: var(--video-w, 2) / var(--video-h, 1);
     overflow: hidden;

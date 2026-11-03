@@ -246,9 +246,15 @@ details.bookshelf > summary:focus-visible {
     outline-offset: 3px;
 }
 
-details.bookshelf:not([open]) .hide-list,
-details.bookshelf[open] .show-list {
-    display: none;
+/* One label in the markup, so that a page without these rules (an older style.css still in a cache) reads right too;
+   once opened, the stylesheet swaps its text. */
+details.bookshelf[open] > summary .list-label {
+    font-size: 0;
+}
+
+details.bookshelf[open] > summary .list-label::after {
+    content: "Hide the list";
+    font-size: 1rem;
 }
 
 .container h1 {

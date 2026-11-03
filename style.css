@@ -840,8 +840,11 @@ a:focus-visible {
 }
 
 /* Site title / masthead — an <h1> on the home page, but a <p class="site-title">
-   on inner pages, where the <h1> is the page topic instead. Both look identical. */
-.site-title {
+   on inner pages, where the <h1> is the page topic instead. Both look identical, and so
+   they must share every metric (the h1 would otherwise take the body's line height of 1.6
+   and sit lower than the paragraph, and with it the nav). */
+.site-title,
+header h1 {
     font-size: 2em;
     line-height: 1.2;
     margin: 0.67em 0;

@@ -228,6 +228,29 @@ body.page-home .container {
     animation: fadeIn 1.5s ease forwards;
 }
 
+/* The bookshelf on the About page: the list stays folded until it is asked for. */
+details.bookshelf > summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--link);
+    margin-bottom: 30px;
+    transition: color 0.2s ease;
+}
+
+details.bookshelf > summary:hover {
+    color: var(--link-hover);
+}
+
+details.bookshelf > summary:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 3px;
+}
+
+details.bookshelf:not([open]) .hide-list,
+details.bookshelf[open] .show-list {
+    display: none;
+}
+
 .container h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
